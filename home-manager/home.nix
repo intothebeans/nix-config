@@ -10,7 +10,6 @@
   imports = [
     ./zsh.nix
     ./vim.nix
-    ./kitty/kitty.nix
   ];
   # nixpkgs config
   nixpkgs.config = {
@@ -47,6 +46,7 @@
     neovim
     nodejs_22
     vscode
+    just
 
     # internet
     protonvpn-gui
@@ -90,7 +90,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     SUDO_EDITOR = "vim";
-    WAKATIME_API_KEY = "${builtins.readFile ./wakatime}";
   };
 
   programs.ssh = {
@@ -103,7 +102,7 @@
 
   programs.git = {
     enable = true;
-    userName = "Aiden Benton";
+    userName = "Aiden";
     userEmail = "88350376+intothebeans@users.noreply.github.com";
     extraConfig = {
       gpg = {

@@ -181,7 +181,7 @@ type = 'os'
 style = 'plain'
 foreground = 'p:white'
 foreground_templates = [
- '{{if eq .OS "linux"}}#cb91f2{{ end }}',
+  '{{if eq .OS "linux"}}#cb91f2{{ end }}',
   '{{if eq .OS "endeavouros"}}#3c6eb4{{ end }}',
   '{{if eq .OS "ubuntu"}}#e95420{{ end }}',
   '{{if eq .OS "windows"}}#00a4ef{{ end }}',
@@ -221,22 +221,6 @@ folder_separator_icon = '  '
 style = 'agnoster_short'
 max_depth = 3
 home_icon = " "
-
-[[blocks]]
-type = 'prompt'
-alignment = 'right'
-newline = false
-
-[[blocks.segments]]
-type = "wakatime"
-style = 'plain'
-template=' {{ secondsRound .CumulativeTotal.Seconds }}'
-foreground='p:blue'
-
-[blocks.segments.properties]
-url = "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key={{ .Env.WAKATIME_API_KEY }}"
-cache_timeout = 10
-http_timeout = 500
 
 [[blocks]]
 type = 'prompt'
