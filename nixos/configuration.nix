@@ -46,6 +46,9 @@
     ];
   };
 
+  security.sudo.extraConfig = ''
+    Defaults:${username} !authenticate
+  '';
   nix.settings.trusted-users = [ username ];
 
   # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
