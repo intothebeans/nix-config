@@ -1,8 +1,7 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vim = with pkgs; {
     enable = true;
-    plugins = [ vimPlugins.everforest ];
+    plugins = [vimPlugins.everforest];
     settings = {
       background = "dark";
       expandtab = true;
@@ -10,7 +9,7 @@
       smartcase = true;
       shiftwidth = 4;
       tabstop = 4;
-      undodir = [ "$HOME/.vim/undodir" ];
+      undodir = ["$HOME/.vim/undodir"];
       undofile = true;
     };
     extraConfig = ''
@@ -31,6 +30,5 @@
       set colorcolumn=80
       highlight ColorColumn ctermbg=0 guibg=lightgrey
     '';
-
   };
 }

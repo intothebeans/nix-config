@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -31,6 +30,11 @@
       ls = "eza --color=always --icons=always --hyperlink -F";
       tree = "eza --color=always --icons=always -T";
       se = "sudoedit";
+      update = "nix flake update";
+      history = "nix profile history --profile /nix/var/nix/profiles/system";
+      clean = "sudo nix profile wipe-history --profile /nix/var/profiles/system --older-than 7d";
+      gc = "sudo nix-collect-garbage --delete-old";
+      hhistory = "home-manager generations";
     };
     initExtra = ''
       HISTDUP=erase
@@ -46,9 +50,8 @@
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --color=always --icons=always -F $realpath'
 
-      eval "$(oh-my-posh init zsh -c ${./. + "/custom.omp.toml"})" 
+      eval "$(oh-my-posh init zsh -c ${./. + "/custom.omp.toml"})"
     '';
-
   };
 
   programs.fzf = {

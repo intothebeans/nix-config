@@ -5,9 +5,7 @@
   inputs,
   username,
   ...
-}:
-
-{
+}: {
   imports = [
     ./zsh.nix
     ./vim.nix
@@ -16,14 +14,12 @@
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
-
   };
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
 
     packages = with pkgs; [
-
       # terminal utils
       fastfetch
       oh-my-posh
@@ -41,13 +37,18 @@
       # nix devel
       nil
       nixfmt-rfc-style
+      alejandra
 
       # gen devel
       kdePackages.kate
       neovim
       nodejs_22
       vscode
-      just
+
+      # libraries
+      glib
+      glibc
+      libnotify
 
       # internet
       protonvpn-gui
@@ -77,15 +78,6 @@
       ticktick
       onlyoffice-bin
       obsidian
-
-      # fonts
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-          "ComicShannsMono"
-          "CascadiaCode"
-        ];
-      })
     ];
 
     sessionVariables = {
@@ -106,7 +98,6 @@
     };
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
-
   };
 
   programs.ssh = {
@@ -142,5 +133,4 @@
   programs.home-manager.enable = true;
 
   systemd.user.startServices = "sd-switch";
-
 }

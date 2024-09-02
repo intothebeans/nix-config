@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   lib,
   config,
@@ -9,9 +8,7 @@
   inputs,
   username,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -49,19 +46,31 @@
   security.sudo.extraConfig = ''
     Defaults:${username} !authenticate
   '';
-  nix.settings.trusted-users = [ username ];
+  nix.settings.trusted-users = [username];
 
   # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
   nix.settings = {
     experimental-features = "nix-command flakes";
     # Workaround for https://github.com/NixOS/nix/issues/9574
     nix-path = config.nix.nixPath;
+    builders-use-substitutes = true;
+  };
+
+  # garbage collection
+  nix.gc = {
+    automatic = lib.mkDefault true;
+    dates = lib.mkDefault "weekly";
+    options = lib.mkDefault "--delete-older-than 7d";
   };
 
   # networking
-  networking.hostName = "nixos-beans";
-
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos-beans";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+    };
+  };
 
   # time zone
   time.timeZone = "America/New_York";
@@ -86,7 +95,7 @@
 
   xdg.portal.enable = true;
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -103,9 +112,23 @@
     };
   };
 
-  # enable plasma 
+  # enable plasma
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  # fonts
+  fonts = {
+    packages = with pkgs; [
+      # nerd fonts
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+          "ComicShannsMono"
+          "CascadiaCode"
+        ];
+      })
+    ];
+  };
 
   # configure keymap in X11
   services.xserver.xkb = {
@@ -128,14 +151,14 @@
   };
 
   # enable swap partition
-  swapDevices = [ { device = "/dev/nvme0n1p6"; } ];
+  swapDevices = [{device = "/dev/nvme0n1p6";}];
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # allow dynamic binaries
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [ ];
+  programs.nix-ld.libraries = [];
 
   # system packages
   environment.systemPackages = with pkgs; [
@@ -151,7 +174,7 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ username ];
+    polkitPolicyOwners = [username];
   };
 
   # This value determines the NixOS release from which the default
@@ -161,5 +184,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
