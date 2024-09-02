@@ -3,11 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 {
+  lib,
   config,
   pkgs,
   inputs,
-  outputs,
-  lib,
+  username,
   ...
 }:
 
@@ -16,28 +16,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
-
-  # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
-        # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes";
-        # Opinionated: disable global registry
-        flake-registry = "";
-        # Workaround for https://github.com/NixOS/nix/issues/9574
-        nix-path = config.nix.nixPath;
-      };
-      # Opinionated: disable channels
-      channel.enable = false;
-
-      # Opinionated: make flake registry and nix path match flake inputs
-      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-    };
 
   # bootloader
   boot.loader = {
@@ -51,6 +29,30 @@
       efiSupport = true;
       useOSProber = true;
     };
+  };
+
+  # users
+  programs.zsh.enable = true;
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "Aiden";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+    ];
+  };
+
+  nix.settings.trusted-users = [ username ];
+
+  # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    # Workaround for https://github.com/NixOS/nix/issues/9574
+    nix-path = config.nix.nixPath;
   };
 
   # networking
@@ -125,33 +127,6 @@
   # enable swap partition
   swapDevices = [ { device = "/dev/nvme0n1p6"; } ];
 
-  # users
-  programs.zsh.enable = true;
-  users.users = {
-    beans = {
-      isNormalUser = true;
-      description = "Aiden";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      shell = pkgs.zsh;
-      packages = with pkgs; [
-        kdePackages.xdg-desktop-portal-kde
-      ];
-    };
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.beans = import ../home-manager/home.nix;
-
-    extraSpecialArgs = {
-      inherit inputs outputs;
-    };
-  };
-
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -173,7 +148,7 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "beans" ];
+    polkitPolicyOwners = [ username ];
   };
 
   # This value determines the NixOS release from which the default

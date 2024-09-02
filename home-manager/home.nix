@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  username,
   ...
 }:
 
@@ -17,79 +18,95 @@
     allowUnfreePredicate = _: true;
 
   };
+  home = {
+    inherit username;
+    homeDirectory = "/home/${username}";
 
-  home.username = "beans";
-  home.homeDirectory = "/home/beans";
+    packages = with pkgs; [
 
-  home.packages = with pkgs; [
+      # terminal utils
+      fastfetch
+      oh-my-posh
 
-    # terminal utils
-    fastfetch
-    oh-my-posh
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+      # system
+      btop
+      flatpak
 
-    # system
-    btop
-    flatpak
+      # nix devel
+      nil
+      nixfmt-rfc-style
 
-    # nix devel
-    nil
-    nixfmt-rfc-style
+      # gen devel
+      kdePackages.kate
+      neovim
+      nodejs_22
+      vscode
+      just
 
-    # gen devel
-    kdePackages.kate
-    neovim
-    nodejs_22
-    vscode
-    just
+      # internet
+      protonvpn-gui
+      vesktop
+      github-desktop
 
-    # internet
-    protonvpn-gui
-    vesktop
-    github-desktop
+      # gaming
+      steam
+      mangohud
+      gamescope
+      lutris
+      modrinth-app
+      prismlauncher
+      wine
+      winetricks
 
-    # gaming
-    steam
-    mangohud
-    gamescope
-    lutris
-    modrinth-app
-    prismlauncher
-    wine
-    winetricks
+      # files
+      veracrypt
+      inkscape
+      gimp
+      vlc
+      nextcloud-client
+      qbittorrent-enhanced
+      kdePackages.qtimageformats
 
-    # files
-    veracrypt
-    inkscape
-    gimp
-    vlc
-    nextcloud-client
-    qbittorrent-enhanced
-    kdePackages.qtimageformats
+      # office
+      ticktick
+      onlyoffice-bin
+      obsidian
 
-    # office
-    ticktick
-    onlyoffice-bin
-    obsidian
+      # fonts
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+          "ComicShannsMono"
+          "CascadiaCode"
+        ];
+      })
+    ];
 
-    # fonts
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "ComicShannsMono"
-        "CascadiaCode"
-      ];
-    })
-  ];
+    sessionVariables = {
+      EDITOR = "nvim";
+      SUDO_EDITOR = "vim";
+    };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    SUDO_EDITOR = "vim";
+    file = {
+      ".config/nvim" = {
+        source = ./nvim;
+        recursive = true;
+      };
+
+      ".config/kitty" = {
+        source = ./kitty;
+        recursive = true;
+      };
+    };
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "24.05";
+
   };
 
   programs.ssh = {
@@ -121,23 +138,9 @@
     };
   };
 
-  home.file = {
-    ".config/nvim" = {
-      source = ./nvim;
-      recursive = true;
-    };
-
-    ".config/kitty" = {
-      source = ./kitty;
-      recursive = true;
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   systemd.user.startServices = "sd-switch";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
 }

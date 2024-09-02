@@ -11,21 +11,30 @@
     {
       self,
       nixpkgs,
+      home-manager,
       ...
     }@inputs:
     let
-      inherit (self) outputs;
+      username = "beans";
+      specialArgs = {
+        inherit inputs username;
+      };
     in
     {
       nixosConfigurations = {
         nixos-beans = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
+          inherit specialArgs;
           system = "x86_64-linux";
           modules = [
             ./nixos/configuration.nix
-            inputs.home-manager.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users.${username} = import ./home-manager/home.nix;
+            }
           ];
         };
       };
