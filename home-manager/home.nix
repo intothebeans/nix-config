@@ -127,6 +127,11 @@
       source = ./nvim;
       recursive = true;
     };
+
+    ".config/kitty" = {
+      source = ./kitty;
+      recursive = true;
+    };
   };
 
   # Let Home Manager install and manage itself.
