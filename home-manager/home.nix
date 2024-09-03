@@ -89,9 +89,9 @@
       SUDO_EDITOR = "vim";
     };
 
-    file = {
-      ".config/lvim/config.lua".source = ./config.lua;
-    };
+    # file = {
+    #   ".config/lvim/config.lua".source = ./config.lua;
+    # };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
