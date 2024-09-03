@@ -44,6 +44,7 @@
       neovim
       nodejs_22
       vscode
+      just
 
       # libraries
       glib
