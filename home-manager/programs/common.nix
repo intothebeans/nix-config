@@ -11,6 +11,7 @@
 
     # utilities
     fastfetch
+    flatpak
     ripgrep
     xclip
     xdg-utils
@@ -37,7 +38,6 @@
   ];
   programs = {
     btop.enable = true;
-    flatpak.enable = true;
   };
   xdg.enable = true;
 }
