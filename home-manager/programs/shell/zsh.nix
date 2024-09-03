@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  home.programs = with pkgs; [
+    oh-my-posh
+  ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;

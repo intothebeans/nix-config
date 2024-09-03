@@ -38,9 +38,6 @@
       "wheel"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
-    ];
   };
 
   security.sudo.extraConfig = ''
@@ -93,7 +90,6 @@
   # graphics
   services.xserver.enable = true;
 
-  xdg.portal.enable = true;
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
 
