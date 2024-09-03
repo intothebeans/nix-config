@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# script modified from https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
+set -e
+
+# format it just in case
+alejandra . &>/dev/null ||
+    (
+        alejandra .
+        echo "formatting failed"
+        exit 1
+    )
+
+echo "Rebuilding NixOS..."
+sudo nixos-rebuild switch --flake ./ | tee $HOME/rebuild.log || (cat $HOME/rebuild.log | grep --color error && exit 1)
+commit_msg=$(nixos-rebuild list-generations | grep current)
+
+git commit -am "$commit_msg"
+notify-send -e "NixOS ${scope} rebuilt successfully" --icon=software-update-available

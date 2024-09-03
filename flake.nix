@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -20,16 +22,19 @@
       inherit inputs username;
     };
   in {
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [./home-manager/home.nix];
-      extraSpecialArgs = specialArgs;
-    };
     nixosConfigurations = {
       nixos-beans = nixpkgs.lib.nixosSystem {
         inherit specialArgs system;
         modules = [
           ./nixos/configuration.nix
+          inputs.stylix.nixosModules.stylix
+          home-manager.nicosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = false;
+            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.users.${username} = import ./home-manager/home.nix;
+          }
         ];
       };
     };

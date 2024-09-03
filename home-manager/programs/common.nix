@@ -21,6 +21,7 @@
     glib
     glibc
     libnotify
+    base16-schemes
 
     # network
     protonvpn-gui
