@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  home.programs = with pkgs; [
+  home.packages = with pkgs; [
     # archives
     zip
     unzip
