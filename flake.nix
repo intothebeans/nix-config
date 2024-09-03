@@ -28,7 +28,7 @@
         modules = [
           ./nixos/configuration.nix
           inputs.stylix.nixosModules.stylix
-          home-manager.nicosModules.home-manager
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = false;
