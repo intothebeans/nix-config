@@ -47,6 +47,7 @@
       lunarvim
       vscode
       just
+      xclip
 
       # libraries
       glib
@@ -86,6 +87,10 @@
     sessionVariables = {
       EDITOR = "nvim";
       SUDO_EDITOR = "vim";
+    };
+
+    file = {
+      ".config/lvim/config.lua".source = ./config.lua;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

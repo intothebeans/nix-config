@@ -139,7 +139,7 @@
     fontconfig.defaultFonts = {
       serif = ["Noto Serif" "Noto Color Emoji"];
       sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["ComocShannsMono Nerd Font" "Noto Color Emoji"]; # I'm fun like that
+      monospace = ["ComicShannsMono Nerd Font" "Noto Color Emoji"]; # I'm fun like that
       emoji = ["Noto Color Emoji"];
     };
   };
