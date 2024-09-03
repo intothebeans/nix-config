@@ -20,3 +20,5 @@ home: _format
     timestamp=$(date +"%d-%m-%Y %r")
     git commit -am "Home Manager rebuilt on $timestamp"
 
+bof: _format home system
+
