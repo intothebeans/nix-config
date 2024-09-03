@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.programs = with pkgs; [
+  home.packages = with pkgs; [
     oh-my-posh
   ];
   programs.zsh = {
