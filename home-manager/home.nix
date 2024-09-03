@@ -9,6 +9,7 @@
   imports = [
     ./zsh.nix
     ./vim.nix
+    ./kitty/kitty.nix
   ];
   # nixpkgs config
   nixpkgs.config = {
