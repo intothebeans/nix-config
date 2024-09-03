@@ -26,7 +26,7 @@
 
     shellAliases = {
       v = "vim";
-      nv = "nvim";
+      nv = "lvim";
       ls = "eza --color=always --icons=always --hyperlink -F";
       tree = "eza --color=always --icons=always -T";
       se = "sudoedit";
