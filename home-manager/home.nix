@@ -91,11 +91,6 @@
         source = ./nvim;
         recursive = true;
       };
-
-      ".config/kitty" = {
-        source = ./kitty;
-        recursive = true;
-      };
     };
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
