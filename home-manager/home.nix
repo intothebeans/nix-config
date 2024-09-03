@@ -41,9 +41,10 @@
       alejandra
 
       # gen devel
+      nodejs_22
+      gcc
       kdePackages.kate
       neovim
-      nodejs_22
       vscode
       just
 

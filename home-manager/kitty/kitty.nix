@@ -26,6 +26,8 @@
       active_tab_font_style = "bold";
       tab_activity_symbol = "none";
       tab_seperator = "";
+      background_opacity = "0.5";
+      background_blur = 1;
     };
   };
   home.file.".config/kitty/tab_bar.py".source = ./tab_bar.py;
