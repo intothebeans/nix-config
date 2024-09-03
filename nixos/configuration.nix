@@ -119,6 +119,13 @@
   # fonts
   fonts = {
     packages = with pkgs; [
+      material-design-icons
+      font-awesome
+
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+
       # nerd fonts
       (nerdfonts.override {
         fonts = [
@@ -128,6 +135,13 @@
         ];
       })
     ];
+    enableDefaultPackages = false;
+    fontconfig.defaultFonts = {
+      serif = ["Noto Serif" "Noto Color Emoji"];
+      sansSerif = ["Noto Sans" "Noto Color Emoji"];
+      monospace = ["ComocShannsMono Nerd Font" "Noto Color Emoji"]; # I'm fun like that
+      emoji = ["Noto Color Emoji"];
+    };
   };
 
   # configure keymap in X11
