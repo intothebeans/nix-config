@@ -44,7 +44,7 @@
       nodejs_22
       gcc
       kdePackages.kate
-      neovim
+      lunarvim
       vscode
       just
 
