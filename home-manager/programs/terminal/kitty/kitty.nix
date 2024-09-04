@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   programs.kitty = {
@@ -28,7 +29,7 @@
       tab_activity_symbol = "none";
       tab_seperator = "";
       background_blur = 1;
-      backround_opacity = "0.6";
+      background_opacity = lib.mkForce "0.6";
     };
   };
   home.file.".config/kitty/tab_bar.py".source = ./tab_bar.py;

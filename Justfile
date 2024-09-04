@@ -7,9 +7,11 @@ _format:
         )
 
 deploy:
+    git add .
     sudo nixos-rebuild switch --flake ./ | tee $HOME/rebuild.log 
 
 debug:
+    git add .
     sudo nixos-rebuild switch --flake ./ -L -v --show-trace | tee $HOME/rebuild.log
 up:
     nix flake update 

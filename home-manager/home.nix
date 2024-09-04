@@ -22,7 +22,7 @@
     };
 
     file = {
-      ".config/lvim/config.lua".source = ./programs/lvim.lua;
+      ".config/lvim/config.lua".source = ./programs/terminal/lvim.lua;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
