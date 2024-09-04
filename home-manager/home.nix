@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./programs/default.nix
+    ./themeing.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
