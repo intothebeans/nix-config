@@ -4,19 +4,19 @@ version = 2
 
 
 [palette]
-blue = "12"
-grey = "8"
-cyan = "14"
-green = "10"
-purple = "#c6a0f6"
-red = "9"
-white = "15"
-yellow = "11"
-dark-red = "1"
-dark-yellow = "3"
-light-purple = "13"
+blue = "blue"
+grey = "darkGray"
+cyan = "cyan"
+green = "green"
+purple = "magenta"
+red = "red"
+white = "white"
+yellow = "yellow"
+light-red = "lightRed"
+light-yellow = "lightYellow"
+light-purple = "lightMagenta"
 electric-green = "#00FF00"
-dark-blue = "4"
+light-blue = "lightBlue"
 pure-red = "#ff0000"
 
 [[blocks]]
@@ -180,12 +180,6 @@ template = '<p:grey>(</> {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end
 type = 'os'
 style = 'plain'
 foreground = 'p:white'
-foreground_templates = [
-  '{{if eq .OS "linux"}}#cb91f2{{ end }}',
-  '{{if eq .OS "endeavouros"}}#3c6eb4{{ end }}',
-  '{{if eq .OS "ubuntu"}}#e95420{{ end }}',
-  '{{if eq .OS "windows"}}#00a4ef{{ end }}',
-]
 template = '<p:grey>(</>{{ if .WSL }}WSL {{ end }} {{.Icon}} <p:grey>)—</>'
 
 [blocks.segments.properties]
@@ -238,7 +232,9 @@ template = '╰─'
 type = 'status'
 style = 'plain'
 foreground = 'p:electric-green'
-foreground_templates = ['{{ if gt .Code 0 }}p:pure-red{{ end }}']
+foreground_templates = [
+  '{{ if gt .Code 0 }}p:pure-red{{ end }}',
+]
 template = ' '
 
 [blocks.segments.properties]
@@ -248,7 +244,9 @@ always_enabled = true
 [transient_prompt]
 foreground = 'p:white'
 template = '{{ .PromptCount }}  '
-foreground_templates = ['{{ if gt .Code 0 }}p:pure-red{{ end }}']
+foreground_templates = [
+  '{{ if gt .Code 0 }}p:pure-red{{ end }}',
+]
 
 [secondary_prompt]
 foreground = 'p:electric-green'

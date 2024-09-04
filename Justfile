@@ -16,6 +16,15 @@ debug:
 up:
     nix flake update 
 
+history:
+    nix profile history --profile /nix/var/nix/profiles/system
+
+clean:
+    sudo nix profile wipe-history --profile /nix/var/nix/profiles/system 
+
+gc:
+    sudo nix-collect-garbage --delete-old
+
 commit: _format
     #!/usr/bin/env bash
     commit_msg=$(nixos-rebuild list-generations | grep current)
