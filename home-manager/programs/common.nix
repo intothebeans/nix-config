@@ -13,13 +13,10 @@
     fastfetch
     flatpak
     ripgrep
-    xclip
     xdg-utils
     kdePackages.xdg-desktop-portal-kde
 
     # libraries
-    glib
-    glibc
     libnotify
     base16-schemes
 

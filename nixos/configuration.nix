@@ -123,7 +123,6 @@
     packages = with pkgs; [
       material-design-icons
       font-awesome
-
       noto-fonts
       noto-fonts-emoji
 
@@ -137,12 +136,12 @@
       })
     ];
     enableDefaultPackages = false;
-    fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["ComicShannsMono Nerd Font" "Noto Color Emoji"]; # I'm fun like that
-      emoji = ["Noto Color Emoji"];
-    };
+    # fontconfig.defaultFonts = {
+    #   serif = ["Noto Serif" "Noto Color Emoji"];
+    #   sansSerif = ["Noto Sans" "Noto Color Emoji"];
+    #   monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"]; # I'm fun like that
+    #   emoji = ["Noto Color Emoji"];
+    # };
   };
 
   # themeing
@@ -164,7 +163,7 @@
         package = nerdfonts.override {fonts = ["JetBrainsMono"];};
       };
       sansSerif = {
-        name = "Noto Sans";
+        name = "ComicShannsMono Nerd Font";
         package = noto-fonts;
       };
       serif = {

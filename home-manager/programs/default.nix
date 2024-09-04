@@ -8,5 +8,6 @@
     ./media.nix
     ./development.nix
     ./1pass.nix
+    ./nixvim.nix
   ];
 }

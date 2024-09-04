@@ -15,6 +15,7 @@
       disable_ligatures = "cursor";
       cursor_shape = "block";
       cursor_beam_thickness = 4;
+      enable_audio_bell = false;
 
       tab_bar_style = "custom";
       tab_bar_min_tabs = 1;
@@ -27,6 +28,7 @@
       tab_activity_symbol = "none";
       tab_seperator = "";
       background_blur = 1;
+      backround_opacity = "0.6";
     };
   };
   home.file.".config/kitty/tab_bar.py".source = ./tab_bar.py;
