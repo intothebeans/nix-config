@@ -10,7 +10,7 @@
       name = "JetBrainsMono Nerd Font";
     };
     shellIntegration.enableZshIntegration = true;
-    theme = "Everforest Dark Medium";
+    theme = "Gruvbox Dark";
     settings = {
       disable_ligatures = "cursor";
       cursor_shape = "block";
@@ -26,7 +26,6 @@
       active_tab_font_style = "bold";
       tab_activity_symbol = "none";
       tab_seperator = "";
-      background_opacity = "0.5";
       background_blur = 1;
     };
   };

@@ -28,7 +28,7 @@
       extraEntries = ''
         insmod ntfs
         menuentry "Windows 11" {
-          set root='(nvme0n1, 3)'
+          set root='(hd1, gpt3)'
         }
       '';
     };
@@ -149,7 +149,7 @@
   stylix = {
     enable = true;
     image = ./wallpaper.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     cursor = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors";
