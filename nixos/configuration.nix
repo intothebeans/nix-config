@@ -148,6 +148,11 @@
   # themeing
   stylix = {
     enable = true;
+    homeManagerIntegration = {
+      autoImport = true;
+      followSystem = true;
+    };
+    autoEnable = true;
     image = ./wallpaper.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     cursor = {
