@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     kdePackages.qtimageformats
-    vlc
+    haruna
     ffmpeg
     imagemagick
     inkscape

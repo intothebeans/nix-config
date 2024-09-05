@@ -110,10 +110,22 @@
     };
   };
 
+  # hyprland
+  programs.hyprland.enable = true;
+  #programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   # enable plasma
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.theme = "eucalyptus-drop";
   services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+    plasma-browser-integration
+    elisa
+    khelpcenter
+    spectacle
+    krdp
+  ];
+  programs.dconf.enable = true;
 
   # fonts
   fonts = {

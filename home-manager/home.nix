@@ -9,6 +9,7 @@
   imports = [
     ./programs/default.nix
     ./themeing.nix
+    ./hyprland/hyprland.nix
   ];
   nixpkgs.config.allowUnfree = true;
 

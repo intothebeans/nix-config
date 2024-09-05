@@ -10,16 +10,12 @@
     stylix.url = "github:danth/stylix";
 
     hyprland.url = "github:hyprwm/Hyprland";
-
-    nixvim.url = "github:nix-community/nixvim";
-    #nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    nixvim,
     ...
   } @ inputs: let
     username = "beans";
@@ -35,7 +31,6 @@
         modules = [
           ./nixos/configuration.nix
           inputs.stylix.nixosModules.stylix
-          nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
