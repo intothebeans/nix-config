@@ -15,6 +15,7 @@
   ];
 
   # bootloader
+  boot.plymouth.enable = true;
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -111,6 +112,7 @@
 
   # enable plasma
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.theme = "eucalyptus-drop";
   services.desktopManager.plasma6.enable = true;
 
   # fonts
@@ -131,12 +133,6 @@
       })
     ];
     enableDefaultPackages = false;
-    # fontconfig.defaultFonts = {
-    #   serif = ["Noto Serif" "Noto Color Emoji"];
-    #   sansSerif = ["Noto Sans" "Noto Color Emoji"];
-    #   monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"]; # I'm fun like that
-    #   emoji = ["Noto Color Emoji"];
-    # };
   };
 
   # themeing
@@ -158,7 +154,7 @@
         package = nerdfonts.override {fonts = ["JetBrainsMono"];};
       };
       sansSerif = {
-        name = "ComicShannsMono Nerd Font";
+        name = "Noto Sans";
         package = noto-fonts;
       };
       serif = {
@@ -200,13 +196,16 @@
   programs.nix-ld.libraries = [];
 
   # system packages
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; let
+    themes = callPackage ./sddm-theme.nix {};
+  in [
     vim
     kitty
     firefox
     git
     wget
     curl
+    themes.eucalyptus-drop
   ];
 
   # system installation required for browser and polkit integration

@@ -30,14 +30,10 @@
     shellAliases = {
       v = "vim";
       nv = "lvim";
+      config = "cd $HOME/nix-config";
       ls = "eza --color=always --icons=always --hyperlink -F";
       tree = "eza --color=always --icons=always -T";
       se = "sudoedit";
-      update = "nix flake update";
-      history = "nix profile history --profile /nix/var/nix/profiles/system";
-      clean = "sudo nix profile wipe-history --profile /nix/var/profiles/system --older-than 7d";
-      gc = "sudo nix-collect-garbage --delete-old";
-      hhistory = "home-manager generations";
     };
     initExtra = ''
       HISTDUP=erase

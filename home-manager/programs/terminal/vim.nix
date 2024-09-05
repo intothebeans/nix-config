@@ -25,7 +25,7 @@
       set nowrap
       set noswapfile
       set nobackup
-      set incserch
+      set incsearch
 
       set colorcolumn=80
       highlight ColorColumn ctermbg=0 guibg=lightgrey
