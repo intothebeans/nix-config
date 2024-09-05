@@ -24,13 +24,8 @@
       device = "nodev";
       enable = true;
       efiSupport = true;
-      # useOSProber = true;
-      extraEntries = ''
-        insmod ntfs
-        menuentry "Windows 11" {
-          set root='(hd1, gpt3)'
-        }
-      '';
+      theme = ./grub-theme;
+      useOSProber = true;
     };
   };
 
@@ -171,6 +166,7 @@
         package = noto-fonts;
       };
     };
+    targets.grub.enable = lib.mkDefault false;
   };
 
   # configure keymap in X11
