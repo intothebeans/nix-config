@@ -13,15 +13,15 @@
     fastfetch
     flatpak
     ripgrep
-    xdg-utils
-    kdePackages.xdg-desktop-portal-kde
-
-    # libraries
+    blueman
     libnotify
     base16-schemes
+    brightnessctl
+    bat
 
     # network
     protonvpn-gui
+    networkmanagerapplet
 
     # files
     veracrypt
@@ -37,5 +37,4 @@
   programs = {
     btop.enable = true;
   };
-  xdg.enable = true;
 }

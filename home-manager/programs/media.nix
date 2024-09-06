@@ -13,6 +13,7 @@
     viu
     wireplumber
     pavucontrol
+    pamixer
   ];
   services.playerctld.enable = true;
 }

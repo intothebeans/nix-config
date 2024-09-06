@@ -11,7 +11,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    ./modules/default.nix
   ];
 
   # bootloader
@@ -32,6 +32,7 @@
 
   # users
   programs.zsh.enable = true;
+  programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "Aiden";
@@ -42,10 +43,12 @@
     shell = pkgs.zsh;
   };
 
+  # security
   security.sudo.extraConfig = ''
     Defaults:${username} !authenticate
   '';
   nix.settings.trusted-users = [username];
+  security.polkit.enable = true;
 
   # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
   nix.settings = {
@@ -71,118 +74,6 @@
     };
   };
 
-  # time zone
-  time.timeZone = "America/New_York";
-
-  # select internationalization properties
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # graphics
-  services.xserver.enable = true;
-
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    prime = {
-      sync.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
-
-  # hyprland
-  programs.hyprland.enable = true;
-  #programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  # enable plasma
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "eucalyptus-drop";
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
-    plasma-browser-integration
-    elisa
-    khelpcenter
-    spectacle
-    krdp
-  ];
-  programs.dconf.enable = true;
-
-  # fonts
-  fonts = {
-    packages = with pkgs; [
-      material-design-icons
-      font-awesome
-      noto-fonts
-      noto-fonts-emoji
-
-      # nerd fonts
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-          "ComicShannsMono"
-          "CascadiaCode"
-        ];
-      })
-    ];
-    enableDefaultPackages = false;
-  };
-
-  # themeing
-  stylix = {
-    enable = true;
-    homeManagerIntegration = {
-      autoImport = true;
-      followSystem = true;
-    };
-    image = ./wallpaper.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    cursor = {
-      package = pkgs.capitaine-cursors;
-      name = "capitaine-cursors";
-    };
-    fonts = with pkgs; {
-      monospace = {
-        name = "JetBrainsMono Nerd Font";
-        package = nerdfonts.override {fonts = ["JetBrainsMono"];};
-      };
-      sansSerif = {
-        name = "Noto Sans";
-        package = noto-fonts;
-      };
-      serif = {
-        name = "Noto Serif";
-        package = noto-fonts;
-      };
-    };
-    targets.grub.enable = lib.mkDefault false;
-  };
-
-  # configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # enable CUPS to print documents
   services.printing.enable = true;
 
@@ -197,8 +88,9 @@
     jack.enable = true;
   };
 
-  # enable swap partition
-  swapDevices = [{device = "/dev/nvme0n1p6";}];
+  # bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;

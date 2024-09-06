@@ -11,6 +11,7 @@
       name = "JetBrainsMono Nerd Font";
     };
     shellIntegration.enableZshIntegration = true;
+    shellIntegration.enableFishIntegration = true;
     theme = "Gruvbox Dark";
     settings = {
       disable_ligatures = "cursor";

@@ -88,6 +88,12 @@ type = 'prompt'
 alignment = 'right'
 
 [[blocks.segments]]
+type = "shell"
+style = "plain"
+foreground = "p:grey"
+template = "{{.Name}}"
+
+[[blocks.segments]]
 type = 'node'
 style = 'plain'
 foreground = '#3C873A'
@@ -183,7 +189,6 @@ foreground = 'p:white'
 template = '<p:grey>(</>{{ if .WSL }}WSL {{ end }} {{.Icon}} <p:grey>)—</>'
 
 [blocks.segments.properties]
-endeavouros = ''
 linux = ''
 macos = ''
 windows = ''

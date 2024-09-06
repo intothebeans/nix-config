@@ -5,14 +5,25 @@
     vscode
     lunarvim
 
-    # development
+    # nix
     nil
     nixfmt-rfc-style
     alejandra
+
+    # js
     nodejs
+
+    # c
     gcc
-    just
+
+    # rust
     rustup
+
+    # python
+    python3
+
+    # tools
+    just
     github-desktop
   ];
 }
