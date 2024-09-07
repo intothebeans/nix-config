@@ -16,10 +16,9 @@
     blueman
     libnotify
     base16-schemes
-    light
     brightnessctl
     bat
-    acpi
+    jq
     powertop
 
     # network

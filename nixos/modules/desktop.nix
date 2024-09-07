@@ -29,17 +29,18 @@
       font-awesome
       noto-fonts
       noto-fonts-emoji
+      ucs-fonts
+      unicode-emoji
+      unicode-character-database
 
       # nerd fonts
       (nerdfonts.override {
         fonts = [
-          "JetBrainsMono"
           "ComicShannsMono"
           "CascadiaCode"
         ];
       })
     ];
-    enableDefaultPackages = false;
   };
 
   # themeing
@@ -67,6 +68,10 @@
       serif = {
         name = "Noto Serif";
         package = noto-fonts;
+      };
+      emoji = {
+        name = "Noto Color Emoji";
+        package = noto-fonts-emoji;
       };
     };
     targets.grub.enable = lib.mkDefault false;

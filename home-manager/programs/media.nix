@@ -19,10 +19,7 @@
     wireplumber
     pavucontrol
     pamixer
-    alsa-utils
-    mpd
-    mpc-cli
-    mpdris2
+    playerctl
   ];
   services.playerctld.enable = true;
 }

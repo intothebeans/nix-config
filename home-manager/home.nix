@@ -24,6 +24,7 @@
 
     file = {
       ".config/lvim/config.lua".source = ./programs/terminal/lvim.lua;
+      ".config/code-flags.conf".source = ./programs/code-flags.conf;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -49,6 +49,20 @@
   '';
   nix.settings.trusted-users = [username];
   security.polkit.enable = true;
+  security.pam.services.sddm.kwallet.enable = true;
+  systemd.user.services.polkit-kde-authentication-agent-1 = {
+    description = "Enable KDE Authentication Agent";
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
 
   # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
   nix.settings = {

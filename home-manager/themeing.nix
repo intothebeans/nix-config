@@ -18,10 +18,6 @@
       })
   ];
   stylix = {
-    fonts = {
-      sansSerif.name = "ComicShannsMono Nerd Font";
-      sansSerif.package = pkgs.nerdfonts.override {fonts = ["ComicShannsMono"];}; # I'm a bit kooky
-    };
     opacity = {
       applications = 0.8;
       desktop = 0.6;
@@ -30,7 +26,7 @@
       neovim = {
         transparentBackground.main = true;
       };
-      vscode.enable = lib.mkForce false;
+      vscode.enable = lib.mkDefault false;
     };
   };
 }
