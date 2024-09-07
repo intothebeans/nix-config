@@ -16,8 +16,11 @@
     blueman
     libnotify
     base16-schemes
+    light
     brightnessctl
     bat
+    acpi
+    powertop
 
     # network
     protonvpn-gui

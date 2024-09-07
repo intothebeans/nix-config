@@ -4,12 +4,24 @@
   config,
   ...
 }: {
-  imports = [];
+  imports = [
+    ./dunst/dunst.nix
+    ./rofi/rofi.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+  ];
   home.packages = with pkgs; [
-    rofi-wayland
+    rofi-emoji-wayland
     waybar
-    dunst
     hyprpicker
+    grimblast
+    wl-clipboard
+    cliphist
+    pyprland
+    swww
+    swappy
+    wlogout
+    slurp
   ];
   wayland.windowManager.hyprland = {
     enable = true;

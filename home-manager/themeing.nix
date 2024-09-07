@@ -30,7 +30,7 @@
       neovim = {
         transparentBackground.main = true;
       };
-      vscode.enable = lib.mkDefault false;
+      vscode.enable = lib.mkForce false;
     };
   };
 }

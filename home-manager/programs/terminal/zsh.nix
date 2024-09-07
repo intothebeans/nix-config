@@ -49,7 +49,7 @@
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --color=always --icons=always -F $realpath'
 
-      eval "$(oh-my-posh init zsh -c ${./. + "/custom.omp.toml"})"
+      eval "$(oh-my-posh init zsh -c ${./. + "/custom.omp.toml"}
     '';
   };
 
