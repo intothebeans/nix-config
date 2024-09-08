@@ -8,7 +8,7 @@
       device = "/dev/sda2";
       fsType = "ntfs";
       mountPoint = "/mnt/d";
-      options = ["nosuid" "noatime" "nodev" "defaults"];
+      options = ["defaults"];
     };
     "/mnt/c" = {
       device = "/dev/nvme0n1p3";

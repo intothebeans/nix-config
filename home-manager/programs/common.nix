@@ -8,7 +8,6 @@
     zip
     unzip
     p7zip
-    kdePackages.ark
 
     # utilities
     fastfetch
@@ -16,7 +15,6 @@
     ripgrep
     blueman
     libnotify
-    base16-schemes
     brightnessctl
     bat
     jq
@@ -31,7 +29,9 @@
     veracrypt
     nextcloud-client
     qbittorrent-enhanced
-    kdePackages.dolphin
+    xfce.thunar
+    xfce.catfish
+    zathura
 
     # office
     ticktick

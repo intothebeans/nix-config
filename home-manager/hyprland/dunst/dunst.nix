@@ -54,6 +54,7 @@
         mouse_left_click = "context, close_current";
         mouse_middle_click = "do_action, close_surrent";
         mouse_right_click = "close_all";
+        dmenu = "rofi -config \"$HOME/.config/rofi/notification.rasi\" -dmenu -p dunst:";
       };
 
       urgency_low = {

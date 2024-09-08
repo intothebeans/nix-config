@@ -5,6 +5,8 @@
   lib,
   ...
 }: {
+  programs.dconf.enable = true;
+
   # hyprland
   programs.hyprland.enable = true;
   #programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -21,14 +23,14 @@
   };
 
   #services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
-    plasma-browser-integration
-    elisa
-    khelpcenter
-    spectacle
-    krdp
-  ];
+  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  #   konsole
+  #   plasma-browser-integration
+  #   elisa
+  #   khelpcenter
+  #   spectacle
+  #   krdp
+  # ];
 
   # fonts
   fonts = {
@@ -46,6 +48,7 @@
         fonts = [
           "ComicShannsMono"
           "CascadiaCode"
+          "CodeNewRoman"
         ];
       })
     ];

@@ -23,8 +23,9 @@
     };
 
     file = {
-      ".config/lvim/config.lua".source = ./programs/terminal/lvim.lua;
-      ".config/code-flags.conf".source = ./programs/code-flags.conf;
+      ".config/lvim/config.lua".source = ./programs/config-files/lvim.lua;
+      ".config/code-flags.conf".source = ./programs/config-files/code-flags.conf;
+      ".config/winapps/winapps.conf".source = ./programs/winapps/winapps.conf;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

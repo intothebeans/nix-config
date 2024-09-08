@@ -23,10 +23,10 @@
       common = {
         default = [
           "xdph"
-          "kde"
+          "gtk"
         ];
         "org.freedesktop.portal.Secret" = ["gnome-keyring"];
-        "org.freedesktop.portal.FileChooser" = ["xdg-desktop-protal-kde"];
+        "org.freedesktop.portal.FileChooser" = ["xdg-desktop-protal-gtk"];
       };
     };
   };

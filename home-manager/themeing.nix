@@ -5,14 +5,12 @@
   ...
 }: {
   home.packages = with pkgs; [
-    kdePackages.full
-    kdePackages.qttools
     libsForQt5.qt5ct
     kdePackages.qt6ct
     kdePackages.qtwayland
     kdePackages.qtstyleplugin-kvantum
+    base16-schemes
     nwg-look
-    dconf
   ];
   qt.style.name = "kvantum";
   stylix = {

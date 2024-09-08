@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       source = [
-        "${./. + "/../gruvbox.conf"}"
+        "${./. + "/gruvbox.conf"}"
       ];
       "$accent" = "$lightAqua";
       "$accentAlpha" = "$aqua";

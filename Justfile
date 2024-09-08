@@ -29,3 +29,8 @@ commit: _format
     #!/usr/bin/env bash
     commit_msg=$(nixos-rebuild list-generations | grep current)
     git add . && git commit -am "$commit_msg"
+
+# winapps
+
+winapps-up:
+    docker-compose -f ./home-manager/programs/winapps/compose.yaml up -d

@@ -5,11 +5,11 @@
 }: {
   home.packages = with pkgs; [
     # images
-    kdePackages.qtimageformats
     imagemagick
     inkscape
     viu
     gimp
+    mate.eom
 
     # video
     haruna

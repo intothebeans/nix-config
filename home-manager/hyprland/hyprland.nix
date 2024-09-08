@@ -9,6 +9,7 @@
     ./rofi/rofi.nix
     ./modules/default.nix
     ./waybar/waybar.nix
+    ./hyprlock/hyprlock.nix
   ];
   home.packages = with pkgs; [
     emote
@@ -18,7 +19,6 @@
     wl-clipboard
     cliphist
     swappy
-    nwg-displays
     lxqt.lxqt-policykit
   ];
   home.file = {
@@ -31,6 +31,10 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      monitor = [
+        "eDP-1, 1920x1080, 1920x0, 1"
+        "HDMI-A-4, 1920x1080, 0x0, 1"
+      ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
@@ -66,7 +70,6 @@
       cursor = {
         no_hardware_cursors = true;
       };
-      monitor = ",preferred,auto,auto";
 
       # layouts
       dwindle = {

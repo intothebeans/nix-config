@@ -8,7 +8,7 @@
 
     "$term" = "kitty";
     "$editor" = "code";
-    "$file" = "dolphin";
+    "$file" = "thunar";
     "$browser" = "firefox";
 
     bind = [
@@ -19,7 +19,6 @@
       "$mainMod, W, togglefloating," # toggle floating
       "$mainMod, G, togglegroup," # toggle group
       "Alt, Return, fullscreen," # toggle fullscreen
-      "$mainMod+Shift, F, exec, $hyprScripts/windowpin.sh" # toggle pin
       "$mainMod, Backslash, exec, hyprlock" # lock
       "$mainMod, Backspace, exec, $rofiApp/powermenu.sh" # powermenu
       "Ctrl+Alt, W, exec, killall .waybar-wrapped || waybar" # toggle waybar
@@ -28,7 +27,7 @@
       "Ctrl+Alt, R, pass, ^(com\.obsproject\.Studio)$" # toggle obs screen recording
       "Ctrl+Alt, P, pass, ^(com\.obsproject\.Studio)$" # toggle obs recording pause
       "$mainMod, T, exec, $term"
-      "$mainMod, E, exec, XDG_CURRENT_DESKTOP=kde $file"
+      "$mainMod, E, exec, $file"
       "$mainMod, C, exec, $editor"
       "$mainMod, F, exec, $browser"
       "Ctrl+Shift, Escape, exec, btop"
@@ -43,7 +42,6 @@
 
       # rofi
       "Alt, Space, exec, $rofiLaunch/type-2/launcher.sh" # app launcher
-      "$mainMod, A, exec, $rofiApp/apps.sh" # quick apps
       "$mainMod, Period, exec, emote" # emojis
       ", Insert, exec, $rofiApp/clipboard.sh" # clipboard manager
 
@@ -125,10 +123,10 @@
     ];
     binded = [
       # move active window around current workspace
-      "$mainMod SHIFT $CONTROL, left,Move activewindow to the right,exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l"
-      "$mainMod SHIFT $CONTROL, right,Move activewindow to the right,exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r"
-      "$mainMod SHIFT $CONTROL, up,Move activewindow to the right,exec, $moveactivewindow  0 -30 || hyprctl dispatch movewindow u"
-      "$mainMod SHIFT $CONTROL, down,Move activewindow to the right,exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d"
+      "$mainMod+Alt, H,Move activewindow to the left,exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l"
+      "$mainMod+Alt, L, Move activewindow to the right,exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r"
+      "$mainMod+Alt, J,Move activewindow up,exec, $moveactivewindow  0 -30 || hyprctl dispatch movewindow u"
+      "$mainMod+Alt, K,Move activewindow down,exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d"
     ];
     binde = [
       # resize windows
