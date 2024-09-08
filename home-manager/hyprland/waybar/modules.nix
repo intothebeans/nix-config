@@ -183,7 +183,7 @@
         format = "{}";
         separate-outputs = true;
         rewrite = {
-          "(.*) — Mozilla Firefox" = "$1 󰈹";
+          #"(.*) — Mozilla Firefox" = "$1 󰈹";
           "(.*)Mozilla Firefox" = "Firefox 󰈹";
           "(.*) - Visual Studio Code" = "$1 󰨞";
           "(.*)Visual Studio Code" = "Code 󰨞";
