@@ -1,4 +1,5 @@
 {config, ...}: {
+  imports = [./modules.nix];
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
@@ -21,9 +22,9 @@
         passthrough = false;
         gtk-layer-shell = true;
         reload_style_on_change = true;
-        modules-left = ["${padding}" "${slend}" "hyprland/workspaces" "${srend}" "${padding}" "${lend}" "custom/spotify" "pulseaudio#mic" "${rend}" "${padding}"];
+        modules-left = ["${lend}" "hyprland/workspaces" "${rend}" "" "${lend}" "custom/spotify" "pulseaudio#mic" "pulseaudio" "${rend}" "${padding}"];
         modules-center = ["${padding}" "${rlend}" "hyprland/window" "cpu" "memory" "${rrend}" "${padding}"];
-        modules-right = ["${padding}" "${lend}" "tray" "${rend}" "${padding}" "${lend}" "idle_inhibitor" "power-profiles-daemon" "custom/cycle_wall" "${rend}" "${padding}" "${lend}" "pulseaudio" "battery" "clock" "${rend}" "${padding}" "${rlend}" "custom/notifications" "${rrend}" "${padding}" "${slend}" "custom/power" "${srend}" "${padding}"];
+        modules-right = ["${lend}" "tray" "${rend}" "${lend}" "custom/cycle_wall" "idle_inhibitor" "power-profiles-daemon" "battery" "clock" "custom/notifications" "custom/power" "${rend}" "${padding}"];
       };
     };
   };

@@ -13,6 +13,10 @@
       "eww daemon"
       "playerctld daemon"
       "$HOME/.config/hypr/scripts/start_wall.sh"
+      "gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-green-dark'"
+      "hyprctl setcursor 'capitaine-cursors' 20"
+      "gsettings set org.gnome.desktop.interface cursor-theme 'capitaine-cursors'"
+      "gsettings set org.gnome.desktop.interface cursor-size 20"
     ];
   };
 }

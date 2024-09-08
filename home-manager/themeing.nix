@@ -6,9 +6,11 @@
 }: {
   home.packages = with pkgs; [
     kdePackages.qt5compat
+    kdePackages.qtbase
     libsForQt5.qt5ct
     kdePackages.qt6ct
     kdePackages.qtwayland
+    kdePackages.qtstyleplugin-kvantum
     nwg-look
     dconf
     (whitesur-icon-theme.override

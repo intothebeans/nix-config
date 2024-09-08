@@ -19,10 +19,10 @@
       "$mainMod, W, togglefloating," # toggle floating
       "$mainMod, G, togglegroup," # toggle group
       "Alt, Return, fullscreen," # toggle fullscreen
-      "$mainmod+Shift, F, exec, $hyprScripts/windowpin.sh" # toggle pin
+      "$mainMod+Shift, F, exec, $hyprScripts/windowpin.sh" # toggle pin
       "$mainMod, Backslash, exec, hyprlock" # lock
       "$mainMod, Backspace, exec, $rofiApp/powermenu.sh" # powermenu
-      "Ctrl+Alt, W, exec, killall waybar || waybar" # toggle waybar
+      "Ctrl+Alt, W, exec, killall .waybar-wrapped || waybar" # toggle waybar
 
       # apps
       "Ctrl+Alt, R, pass, ^(com\.obsproject\.Studio)$" # toggle obs screen recording
@@ -79,8 +79,8 @@
       # special workspaces
       "$mainMod+Shift, O, workspace, 20"
 
-      "$mainmod+Ctrl, L, workspace, r+1"
-      "$mainmod+Ctrl, H, workspace, r-1"
+      "$mainMod+Ctrl, L, workspace, r+1"
+      "$mainMod+Ctrl, H, workspace, r-1"
 
       "$mainMod+Ctrl, J, workspace, empy" # move to first empty workspace
 
@@ -105,7 +105,7 @@
       "$mainMod, mouse_up, workspace, e-1"
 
       # special workspace
-      "$manMod_Alt, S, movetoworkspacesilent, special"
+      "$mainMod+Alt, S, movetoworkspacesilent, special"
       "$mainMod, S, togglespecialworkspace,"
 
       # toggle window split
@@ -128,7 +128,7 @@
       "$mainMod SHIFT $CONTROL, left,Move activewindow to the right,exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l"
       "$mainMod SHIFT $CONTROL, right,Move activewindow to the right,exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r"
       "$mainMod SHIFT $CONTROL, up,Move activewindow to the right,exec, $moveactivewindow  0 -30 || hyprctl dispatch movewindow u"
-      " $mainMod SHIFT $CONTROL, down,Move activewindow to the right,exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d"
+      "$mainMod SHIFT $CONTROL, down,Move activewindow to the right,exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d"
     ];
     binde = [
       # resize windows

@@ -113,6 +113,9 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
 
+  # power profiles
+  services.power-profiles-daemon.enable = true;
+
   # system packages
   environment.systemPackages = with pkgs; let
     themes = callPackage ./sddm-theme.nix {};

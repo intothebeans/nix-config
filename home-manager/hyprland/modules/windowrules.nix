@@ -40,11 +40,12 @@
       "float,class:^(nm-applet)$"
       "float,class:^(nm-connection-editor)$"
       "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+      "float,class:^(Rofi)$"
     ];
 
     layerrule = [
-      "blur,rofi"
-      "ignorezero,rofi"
+      "blur,Rofi"
+      "ignorezero,Rofi"
       "blur,waybar"
       "ignorezero,waybar"
       "blur,notifications"

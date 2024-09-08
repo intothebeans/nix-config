@@ -8,6 +8,7 @@
     zip
     unzip
     p7zip
+    kdePackages.ark
 
     # utilities
     fastfetch
@@ -20,6 +21,7 @@
     bat
     jq
     powertop
+    killall
 
     # network
     protonvpn-gui
