@@ -14,7 +14,7 @@
       "opacity 0.80 0.70,class:^(blueman-manager)$"
       "opacity 0.80 0.70,class:^(nm-applet)$"
       "opacity 0.80 0.70,class:^(nm-connection-editor)$"
-      "opacity 0.80 0.70,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+      "opacity 0.80 0.70,title:^(Authentication Required)$"
       "opacity 0.80 0.70,class:^(org.freedesktop.impl.portal.desktop.gtk)$"
       "opacity 0.80 0.70,class:^(org.freedesktop.impl.portal.desktop.hyprland)$"
       "opacity 0.70 0.70,class:^([Ss]team)$"
@@ -39,7 +39,7 @@
       "float,class:^(blueman-manager)$"
       "float,class:^(nm-applet)$"
       "float,class:^(nm-connection-editor)$"
-      "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+      "float,title:^(Authentication Required)$"
       "float,class:^(Rofi)$"
     ];
 

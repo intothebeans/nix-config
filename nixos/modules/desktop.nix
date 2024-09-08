@@ -10,8 +10,16 @@
   #programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   # enable plasma
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "eucalyptus-drop";
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "eucalyptus-drop";
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+    extraPackages = with pkgs; [
+      kdePackages.qt5compat
+    ];
+  };
+
   #services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
@@ -55,6 +63,7 @@
     cursor = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors";
+      size = 20;
     };
     fonts = with pkgs; {
       monospace = {

@@ -8,7 +8,7 @@
 
     "$term" = "kitty";
     "$editor" = "code";
-    "$file" = "nautilus";
+    "$file" = "dolphin";
     "$browser" = "firefox";
 
     bind = [
@@ -28,7 +28,7 @@
       "Ctrl+Alt, R, pass, ^(com\.obsproject\.Studio)$" # toggle obs screen recording
       "Ctrl+Alt, P, pass, ^(com\.obsproject\.Studio)$" # toggle obs recording pause
       "$mainMod, T, exec, $term"
-      "$mainMod, E, exec, $file"
+      "$mainMod, E, exec, XDG_CURRENT_DESKTOP=kde $file"
       "$mainMod, C, exec, $editor"
       "$mainMod, F, exec, $browser"
       "Ctrl+Shift, Escape, exec, btop"

@@ -19,5 +19,15 @@
       xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
     ];
+    config = {
+      common = {
+        default = [
+          "xdph"
+          "kde"
+        ];
+        "org.freedesktop.portal.Secret" = ["gnome-keyring"];
+        "org.freedesktop.portal.FileChooser" = ["xdg-desktop-protal-kde"];
+      };
+    };
   };
 }

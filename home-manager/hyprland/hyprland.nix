@@ -19,6 +19,7 @@
     cliphist
     swappy
     nwg-displays
+    lxqt.lxqt-policykit
   ];
   home.file = {
     ".config/hypr/scripts" = {
@@ -26,6 +27,7 @@
       recursive = true;
     };
   };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -75,11 +77,11 @@
         new_status = "master";
       };
       general = {
-        gaps_out = "0 5 5 5";
+        gaps_out = "0 20 20 20";
         gaps_in = 5;
       };
       decoration = {
-        rounding = true;
+        rounding = 10;
       };
       # misc
       misc = {

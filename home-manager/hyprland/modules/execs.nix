@@ -4,6 +4,7 @@
       "waybar"
       "blueman-applet"
       "nm-applet"
+      "lxqt-policykit-agent"
       "dunst"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
