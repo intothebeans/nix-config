@@ -20,7 +20,7 @@
     brightnessctl
     bat
     jq
-    powertop
+    coreutils-full
     killall
 
     # network

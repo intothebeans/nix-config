@@ -7,7 +7,7 @@
       ];
       "$accent" = "$lightAqua";
       "$accentAlpha" = "$aqua";
-      "$font" = "JetBrains Mono Nerd Font";
+      "$font" = "JetBrainsMono Nerd Font";
 
       general = {
         disable_loading_bar = false;
@@ -15,7 +15,7 @@
       };
       background = {
         monitor = "";
-        path = "$HOME/.config/background";
+        path = "${./. + "../../../../nixos/wallpaper.jpg"}";
         blur_passes = 1;
         color = "$bg0";
       };
@@ -28,7 +28,7 @@
           font_size = 25;
           font_family = "$font";
           position = "30, -30";
-          halighn = "left";
+          halign = "left";
           valign = "top";
         }
         {
@@ -38,7 +38,7 @@
           font_size = 90;
           font_family = "$font";
           position = "-30, 0";
-          halighn = "right";
+          halign = "right";
           valign = "top";
         }
         {
@@ -48,7 +48,7 @@
           font_size = 25;
           font_family = "$font";
           position = "-30, -150";
-          halighn = "right";
+          halign = "right";
           valign = "top";
         }
       ];
@@ -59,7 +59,7 @@
         border_color = "$accent";
         position = "0, 75";
         halign = "center";
-        valign = "bottom";
+        valign = "center";
       };
       input-field = {
         monitor = "";
@@ -72,7 +72,7 @@
         inner_color = "$bg2";
         font_color = "$fg0";
         fade_on_empty = false;
-        placeholder_text = "<span foreground=\"##$textAlpha\"><i>󰌾 Logged in as </i><span foreground=\"##$accentAlpha\">$USER</span></span>";
+        placeholder_text = "<i>󰌾 Logged in as $USER</i>";
         hide_input = false;
         check_color = "$accent";
         fail_color = "$red";

@@ -17,8 +17,6 @@
     grimblast
     wl-clipboard
     cliphist
-    pyprland
-    swww
     swappy
     nwg-displays
   ];
@@ -40,7 +38,7 @@
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_QPA_PLATFORMTHEME,qt6ct"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "MOZ_ENABLE_WAYLAND,1"
@@ -77,7 +75,11 @@
         new_status = "master";
       };
       general = {
-        gaps_out = 10;
+        gaps_out = "0 5 5 5";
+        gaps_in = 5;
+      };
+      decoration = {
+        rounding = true;
       };
       # misc
       misc = {

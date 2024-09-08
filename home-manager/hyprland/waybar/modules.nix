@@ -54,13 +54,6 @@
         format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
       };
 
-      "custom/cycle_wall" = {
-        format = " ";
-        on-click = "$HOME/.config/hypr/scripts/wall.sh";
-        tooltip = true;
-        tooltip-format = "Change wallpaper";
-      };
-
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {

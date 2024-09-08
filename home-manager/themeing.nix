@@ -6,19 +6,15 @@
 }: {
   home.packages = with pkgs; [
     kdePackages.qt5compat
-    kdePackages.qtbase
+    kdePackages.full
     libsForQt5.qt5ct
     kdePackages.qt6ct
     kdePackages.qtwayland
     kdePackages.qtstyleplugin-kvantum
     nwg-look
     dconf
-    (whitesur-icon-theme.override
-      {
-        alternativeIcons = true;
-        themeVariants = ["green"];
-      })
   ];
+  qt.style.name = "kvantum";
   stylix = {
     opacity = {
       applications = 0.8;

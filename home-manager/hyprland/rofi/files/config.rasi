@@ -15,7 +15,7 @@ configuration {
 	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Whitesur-green";
+	icon-theme: "WhiteSur-green-dark";
 /*	cache-dir: ;*/
 	steal-focus: false;
 /*	dpi: -1;*/

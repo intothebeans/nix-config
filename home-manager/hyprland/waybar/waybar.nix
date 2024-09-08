@@ -24,7 +24,7 @@
         reload_style_on_change = true;
         modules-left = ["${lend}" "hyprland/workspaces" "${rend}" "" "${lend}" "custom/spotify" "pulseaudio#mic" "pulseaudio" "${rend}" "${padding}"];
         modules-center = ["${padding}" "${rlend}" "hyprland/window" "cpu" "memory" "${rrend}" "${padding}"];
-        modules-right = ["${lend}" "tray" "${rend}" "${lend}" "custom/cycle_wall" "idle_inhibitor" "power-profiles-daemon" "battery" "clock" "custom/notifications" "custom/power" "${rend}" "${padding}"];
+        modules-right = ["${lend}" "tray" "${rend}" "${lend}" "idle_inhibitor" "power-profiles-daemon" "battery" "clock" "custom/notifications" "custom/power" "${rend}" "${padding}"];
       };
     };
   };

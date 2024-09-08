@@ -21,7 +21,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font: "CaskadyiaCove Mono Nerd Font Normal 16px";
+    font: "JetBrainsMono Nerd Font Normal 16px";
     background:     #32302FDD;
     background-alt: #32302FDD;
     foreground:     #EBDBB2FF; /* #EBDBB2FF; */
@@ -36,8 +36,8 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west;
-    anchor:                      north;
+    location:                    center;
+    anchor:                      center;
     fullscreen:                  false;
     width:                       30%;
     height:                      100%;

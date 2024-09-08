@@ -8,7 +8,7 @@
 
     "$term" = "kitty";
     "$editor" = "code";
-    "$file" = "dolphin";
+    "$file" = "nautilus";
     "$browser" = "firefox";
 
     bind = [
@@ -39,12 +39,12 @@
       "Ctrl+Shift, Space, exec, 1password --quick-access"
       "$mainMod, Semicolon, exec, ticktick"
       "$mainMod, O, exec, obsidian"
+      "$mainMod+Ctrl, G, exec, $hyprScripts/gamemode.sh"
 
       # rofi
       "Alt, Space, exec, $rofiLaunch/type-2/launcher.sh" # app launcher
       "$mainMod, A, exec, $rofiApp/apps.sh" # quick apps
       "$mainMod, Period, exec, emote" # emojis
-      "$mainMod, M, exec, $rofiApp/mpd.sh" # music controls
       ", Insert, exec, $rofiApp/clipboard.sh" # clipboard manager
 
       # screenshot
