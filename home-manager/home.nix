@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  username,
-  ...
-}: {
+{username, ...}: {
   imports = [
     ./programs/default.nix
     ./themeing.nix

@@ -49,6 +49,7 @@
           "ComicShannsMono"
           "CascadiaCode"
           "CodeNewRoman"
+          "MartianMono"
         ];
       })
     ];
