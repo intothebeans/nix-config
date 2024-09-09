@@ -10,16 +10,12 @@
     stylix.url = "github:danth/stylix";
 
     hyprland.url = "github:hyprwm/Hyprland";
-
-    winapps.url = "github:winapps-org/winapps/feat-nix-packaging";
-    winapps.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    winapps,
     ...
   } @ inputs: let
     username = "beans";
@@ -35,12 +31,6 @@
         modules = [
           ./nixos/configuration.nix
           inputs.stylix.nixosModules.stylix
-          ({pkgs, ...}: {
-            environment.systemPackages = [
-              winapps.packages.${system}.winapps
-              winapps.packages.${system}.winapps-launcher
-            ];
-          })
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

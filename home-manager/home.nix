@@ -20,6 +20,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       SUDO_EDITOR = "vim";
+      PATH = "$PATH:$HOME/.local/bin";
     };
 
     file = {
