@@ -29,7 +29,7 @@
 
     shellAliases = {
       v = "vim";
-      nv = "lvim";
+      nv = "nvim";
       config = "cd $HOME/nix-config";
       ls = "eza --color=always --icons=always --hyperlink -F";
       tree = "eza --color=always --icons=always -T";

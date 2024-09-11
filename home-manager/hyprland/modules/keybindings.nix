@@ -1,27 +1,24 @@
 {config, ...}: {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "Super";
-    "$rofiApp" = "$HOME/.config/rofi/applets/bin";
-    "$rofiLaunch" = "$HOME/.config/rofi/launchers";
+    "$rofi" = "$HOME/.config/rofi";
     "$hyprScripts" = "$HOME/.config/hypr/scripts";
-    "$moveactivewindow" = "grep -q 'true' <<< &(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive";
-
     "$term" = "kitty";
     "$editor" = "code";
-    "$file" = "thunar";
+    "$file" = "nemo";
     "$browser" = "firefox";
 
     bind = [
       # session/windows
       "$mainMod, Q, exec, $hyprScripts/dontkillsteam.sh" # quit window
+      ", XF86PowerOff, exec, systemctl suspend"
       "Alt, F4, exec, $hyprScripts/dontkillsteam.sh"
       "$mainMod, Delete, exit," # exit Hyprland session
       "$mainMod, W, togglefloating," # toggle floating
       "$mainMod, G, togglegroup," # toggle group
       "Alt, Return, fullscreen," # toggle fullscreen
       "$mainMod, Backslash, exec, hyprlock" # lock
-      "$mainMod, Backspace, exec, $rofiApp/powermenu.sh" # powermenu
-      "Ctrl+Alt, W, exec, killall .waybar-wrapped || waybar" # toggle waybar
+      "$mainMod, Backspace, exec, ags -t powermenu" # powermenu
 
       # apps
       "Ctrl+Alt, R, pass, ^(com\.obsproject\.Studio)$" # toggle obs screen recording
@@ -39,17 +36,18 @@
       "$mainMod, Semicolon, exec, ticktick"
       "$mainMod, O, exec, obsidian"
       "$mainMod+Ctrl, G, exec, $hyprScripts/gamemode.sh"
+      "$mainMod, Escape, exec, hyprctl kill"
 
-      # rofi
-      "Alt, Space, exec, $rofiLaunch/type-2/launcher.sh" # app launcher
+      # launchers
+      "Alt, Space, exec, ags -t launcher" # app launcher
+      "$mainMod, Tab, exec, ags -t overview"
       "$mainMod, Period, exec, emote" # emojis
-      ", Insert, exec, $rofiApp/clipboard.sh" # clipboard manager
+      ", Insert, exec, $rofi/clipboard.sh" # clipboard manager
 
       # screenshot
-      "$mainMod, P, exec, $hyprScripts/screenshot.sh s" # partial screenshot
-      "$mainMod+Ctrl, P, exec , $hyprScripts/screenshot.sh sf" # partial screenshot w/ frozen screen
-      "$mainMod+Alt, P, exec, $hyprScripts/screenshot.sh m" # screenshot of focused monitor
-      ",Print,exec, $hyprScripts/screenshot.sh p" # screenshot all monitors
+      "$mainMod+Shift, Print, exec, ags -r 'recorder.start()'"
+      ",Print, exec, ags -r 'recorder.screenshot()'"
+      "Alt, Print, exec, ags -r 'recorder.screenshot(true)'"
 
       # grouped windows
       "$mainMod+Ctrl, U, changegroupactive, b"
@@ -61,6 +59,12 @@
       "$mainMod, J, movefocus, u"
       "$mainMod, K, movefocus, d"
       "Alt, Tab, movefocus, d"
+
+      # move windows around
+      "$mainMod+Shift+Ctrl, H, movewindow, l"
+      "$mainMod+Shift+Ctrl, L, movewindow, r"
+      "$mainMod+Shift+Ctrl, K, movewindow, u"
+      "$mainMod+Shift+Ctrl, J, movewindow, d"
 
       # switch workspaces
       "$mainMod, 1, workspace, 1"
@@ -80,7 +84,7 @@
       "$mainMod+Ctrl, L, workspace, r+1"
       "$mainMod+Ctrl, H, workspace, r-1"
 
-      "$mainMod+Ctrl, J, workspace, empy" # move to first empty workspace
+      "$mainMod+Ctrl, J, workspace, empty" # move to first empty workspace
 
       # move focused window to workspace
       "$mainMod+Shift, 1, movetoworkspace, 1"
@@ -95,8 +99,8 @@
       "$mainMod+Shift, 0, movetoworkspace, 10"
 
       # move focused window to relative workspace
-      "$mainMod+Shift+Ctrl, l, movetoworkspace, r+1"
-      "$mainMod+Shift+Ctrl, h, movetoworkspace, r-1"
+      "$mainMod+Alt+Ctrl, l, movetoworkspace, r+1"
+      "$mainMod+Alt+Ctrl, h, movetoworkspace, r-1"
 
       # scroll through workspaces
       "$mainMod, mouse_down, workspace, e+1"
@@ -121,13 +125,6 @@
       "$mainMod+Alt, 9, movetoworkspacesilent, 9"
       "$mainMod+Alt, 0, movetoworkspacesilent, 10"
     ];
-    binded = [
-      # move active window around current workspace
-      "$mainMod+Alt, H,Move activewindow to the left,exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l"
-      "$mainMod+Alt, L, Move activewindow to the right,exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r"
-      "$mainMod+Alt, J,Move activewindow up,exec, $moveactivewindow  0 -30 || hyprctl dispatch movewindow u"
-      "$mainMod+Alt, K,Move activewindow down,exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d"
-    ];
     binde = [
       # resize windows
       "$mainMod+Shift, H, resizeactive, -30 0"
@@ -136,24 +133,11 @@
       "$mainMod+Shift, K, resizeactive, 0 -30"
     ];
     bindl = [
-      # audio
-      ", XF86AudioMute, exec, $hyprScripts/volumecontrol.sh -o m"
-      ", XF86AudioMicMute, exec, $hyprScripts/volumecontrol.sh -i m"
-
       # media control
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioPause, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPrev, exec, playerctl previous"
-    ];
-    bindel = [
-      # brightness
-      ", XF86MonBrightnessUp, exec, $hyprScripts/brightnesscontrol.sh i"
-      ", XF86MonBrightnessDown, exec, $hyprScripts/brightnesscontrol.sh d"
-
-      # audio
-      ", XF86AudioRaiseVolume, exec, $hyprScripts/volumecontrol.sh -o i"
-      ", XF86AudioLowerVolume, exec, $hyprScripts/volumecontrol.sh -o d"
     ];
     bindm = [
       # mouse bindings

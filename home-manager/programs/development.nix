@@ -3,7 +3,7 @@
     # editors
     kdePackages.kate
     vscode
-    lunarvim
+    neovim
 
     # nix
     nil

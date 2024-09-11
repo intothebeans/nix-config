@@ -10,12 +10,20 @@
     stylix.url = "github:danth/stylix";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    ags.url = "github:Aylur/ags";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    lix-module,
     ...
   } @ inputs: let
     username = "beans";
@@ -30,6 +38,7 @@
         inherit specialArgs system;
         modules = [
           ./nixos/configuration.nix
+          lix-module.nixosModules.default
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {

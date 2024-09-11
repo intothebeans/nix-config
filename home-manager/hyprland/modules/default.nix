@@ -5,6 +5,6 @@
     ./windowrules.nix
     ./hypridle.nix
     ./execs.nix
-    #./workspaces.nix
+    ./workspaces.nix
   ];
 }

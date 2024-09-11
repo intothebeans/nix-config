@@ -32,6 +32,14 @@
   #   krdp
   # ];
 
+  # budgie
+  services.xserver.desktopManager.budgie.enable = true;
+  environment.budgie.excludePackages = with pkgs; [
+    mate.mate-terminal
+    mate.mate-system-monitor
+    mate.atril
+  ];
+
   # fonts
   fonts = {
     packages = with pkgs; [
@@ -39,9 +47,6 @@
       font-awesome
       noto-fonts
       noto-fonts-emoji
-      ucs-fonts
-      unicode-emoji
-      unicode-character-database
 
       # nerd fonts
       (nerdfonts.override {
@@ -62,7 +67,7 @@
       autoImport = true;
       followSystem = true;
     };
-    image = ../wallpaper.jpg;
+    image = ../forest-river.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     cursor = {
       package = pkgs.capitaine-cursors;

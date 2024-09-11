@@ -7,7 +7,6 @@
     ./gaming.nix
     ./media.nix
     ./development.nix
-    ./1pass.nix
     ./xdg.nix
   ];
 }

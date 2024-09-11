@@ -105,8 +105,9 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
 
-  # power profiles
+  # power
   services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   # system packages
   environment.systemPackages = with pkgs; let

@@ -29,9 +29,8 @@
     veracrypt
     nextcloud-client
     qbittorrent-enhanced
-    xfce.thunar
-    xfce.catfish
     zathura
+    nemo
 
     # office
     ticktick

@@ -5,11 +5,10 @@
   ...
 }: {
   imports = [
-    ./dunst/dunst.nix
     ./rofi/rofi.nix
     ./modules/default.nix
-    ./waybar/waybar.nix
     ./hyprlock/hyprlock.nix
+    ./ags/ags.nix
   ];
   home.packages = with pkgs; [
     emote
@@ -17,6 +16,9 @@
     hyprshade
     grimblast
     wl-clipboard
+    wf-recorder
+    wayshot
+    slurp
     cliphist
     swappy
     lxqt.lxqt-policykit
@@ -80,8 +82,9 @@
         new_status = "master";
       };
       general = {
-        gaps_out = "0 20 20 20";
+        gaps_out = 20;
         gaps_in = 5;
+        border_size = 3;
       };
       decoration = {
         rounding = 10;

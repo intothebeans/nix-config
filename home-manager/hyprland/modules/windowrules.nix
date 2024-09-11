@@ -2,6 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     windowrulev2 = [
       "opacity 0.90 0.90,class:^(firefox)$"
+      "opacity 0.90 0.90,class:^(obsidian)$"
       "opacity 0.80 0.80,class:^(Code)$"
       "opacity 0.80 0.80,class:^(code-url-handler)$"
       "opacity 0.80 0.80,class:^(kitty)$"

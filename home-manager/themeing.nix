@@ -10,6 +10,8 @@
     kdePackages.qtwayland
     kdePackages.qtstyleplugin-kvantum
     base16-schemes
+    (tela-circle-icon-theme.override
+      {colorVariants = ["green"];})
     nwg-look
   ];
   qt.style.name = "kvantum";
