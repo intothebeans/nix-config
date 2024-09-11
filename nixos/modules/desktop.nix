@@ -32,14 +32,6 @@
   #   krdp
   # ];
 
-  # budgie
-  services.xserver.desktopManager.budgie.enable = true;
-  environment.budgie.excludePackages = with pkgs; [
-    mate.mate-terminal
-    mate.mate-system-monitor
-    mate.atril
-  ];
-
   # fonts
   fonts = {
     packages = with pkgs; [
