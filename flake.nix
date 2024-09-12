@@ -24,6 +24,7 @@
     nixpkgs,
     home-manager,
     lix-module,
+    stylix,
     ...
   } @ inputs: let
     username = "beans";
@@ -39,7 +40,7 @@
         modules = [
           ./nixos/configuration.nix
           lix-module.nixosModules.default
-          inputs.stylix.nixosModules.stylix
+          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
