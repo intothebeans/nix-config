@@ -29,7 +29,7 @@
     veracrypt
     nextcloud-client
     qbittorrent-enhanced
-    zathura
+    kdePackages.okular
     xfce.thunar
     xfce.catfish
 
