@@ -30,10 +30,12 @@
     nextcloud-client
     qbittorrent-enhanced
     zathura
-    nemo
+    xfce.thunar
+    xfce.catfish
 
     # office
     ticktick
+    zotero
     onlyoffice-bin
     obsidian
   ];
