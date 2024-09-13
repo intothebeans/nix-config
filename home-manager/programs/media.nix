@@ -11,6 +11,10 @@
     gimp
     mate.eom
 
+    # ocr
+    tesseract
+    poppler_utils
+
     # video
     haruna
     ffmpeg
