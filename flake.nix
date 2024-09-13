@@ -22,9 +22,9 @@
   outputs = {
     self,
     nixpkgs,
-    home-manager,
     lix-module,
     stylix,
+    home-manager,
     ...
   } @ inputs: let
     username = "beans";

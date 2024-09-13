@@ -38,6 +38,7 @@
       "float,class:^(nm-connection-editor)$"
       "float,title:^(Authentication Required)$"
       "float,class:^(Rofi)$"
+      "float,title:^(File Operation Progress)$class:^(thunar)$"
     ];
 
     layerrule = [

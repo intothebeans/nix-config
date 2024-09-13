@@ -83,6 +83,8 @@
   # enable CUPS to print documents
   services.printing.enable = true;
 
+  services.gvfs.enable = true;
+
   # enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

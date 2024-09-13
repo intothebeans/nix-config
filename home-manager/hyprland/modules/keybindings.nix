@@ -132,6 +132,12 @@
       "$mainMod+Shift, J, resizeactive, 0 30"
       "$mainMod+Shift, K, resizeactive, 0 -30"
     ];
+    bindel = [
+      ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+      ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ", XF86AudioLowerVolume, exec, pamixer -d 5"
+      ", XF86AudioRaiseVolume, exec, pamixer -i 5"
+    ];
     bindl = [
       # media control
       ", XF86AudioPlay, exec, playerctl play-pause"
