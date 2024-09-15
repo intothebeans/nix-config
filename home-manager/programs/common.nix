@@ -20,10 +20,10 @@
     jq
     coreutils-full
     killall
-
-    # network
-    protonvpn-gui
     networkmanagerapplet
+
+    # security
+    protonvpn-gui
 
     # files
     veracrypt
@@ -32,6 +32,7 @@
     kdePackages.okular
     xfce.thunar
     xfce.catfish
+    appimage-run
 
     # office
     ticktick

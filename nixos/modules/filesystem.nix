@@ -1,4 +1,6 @@
 {config, ...}: {
+  services.gvfs.enable = true;
+
   # enable swap partition
   swapDevices = [{device = "/dev/nvme0n1p6";}];
 

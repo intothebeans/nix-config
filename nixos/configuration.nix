@@ -32,7 +32,6 @@
 
   # users
   programs.zsh.enable = true;
-  programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "Aiden";
@@ -54,8 +53,8 @@
   services.gnome = {
     gnome-keyring.enable = true;
   };
-
   security.pam.services.login.enableGnomeKeyring = true;
+
   # enable experimental features (from https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/nixos/configuration.nix)
   nix.settings = {
     experimental-features = "nix-command flakes";
@@ -83,8 +82,6 @@
   # enable CUPS to print documents
   services.printing.enable = true;
 
-  services.gvfs.enable = true;
-
   # enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -106,6 +103,9 @@
   # allow dynamic binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];
+
+  # app images
+  programs.appimage.binfmt = true;
 
   # power
   services.power-profiles-daemon.enable = true;

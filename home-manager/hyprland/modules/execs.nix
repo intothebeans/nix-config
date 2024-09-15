@@ -9,7 +9,8 @@
       "hypridle"
       "1password"
       "playerctld daemon"
-      "$HOME/.config/hypr/scripts/nextcloud.sh"
+      "$HOME/.config/hypr/scripts/delayed-start.sh"
+      "eval `ssh-agent`"
     ];
   };
 }

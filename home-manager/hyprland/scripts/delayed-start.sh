@@ -2,3 +2,5 @@
 
 sleep 1
 nextcloud
+sleep 1
+keepassxc
