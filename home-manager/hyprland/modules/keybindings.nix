@@ -5,7 +5,7 @@
     "$hyprScripts" = "$HOME/.config/hypr/scripts";
     "$term" = "kitty";
     "$editor" = "code";
-    "$file" = "thunar";
+    "$file" = "nautilus";
     "$browser" = "firefox";
 
     bind = [

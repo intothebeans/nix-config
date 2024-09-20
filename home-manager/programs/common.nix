@@ -30,9 +30,9 @@
     nextcloud-client
     qbittorrent-enhanced
     kdePackages.okular
-    xfce.thunar
-    xfce.catfish
+    nautilus
     appimage-run
+    sshfs
 
     # office
     ticktick

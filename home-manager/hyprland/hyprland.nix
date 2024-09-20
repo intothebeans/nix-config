@@ -51,7 +51,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "MOZ_ENABLE_WAYLAND,1"
         "GDK_SCALE,1"
-        "GDK_BACKEND,wayland,x11"
+        "GDK_BACKEND,wayland"
         "SDL_VIDEODRIVER,wayland"
       ];
       # hardware
