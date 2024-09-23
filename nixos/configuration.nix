@@ -16,6 +16,7 @@
 
   # bootloader
   boot.plymouth.enable = true;
+  boot.extraModprobeConfig = ''blacklist nouveau options nouveau modeset=0 options nvidia_drm fbdev=1'';
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -62,6 +63,22 @@
     nix-path = config.nix.nixPath;
     builders-use-substitutes = true;
   };
+  nixpkgs.overlays = [
+    # GNOME 46: triple-buffering-v4-46
+    (final: prev: {
+      gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+        mutter = gnomePrev.mutter.overrideAttrs (old: {
+          src = pkgs.fetchFromGitLab {
+            domain = "gitlab.gnome.org";
+            owner = "vanvugt";
+            repo = "mutter";
+            rev = "triple-buffering-v4-46";
+            hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+          };
+        });
+      });
+    })
+  ];
 
   # garbage collection
   nix.gc = {
@@ -112,16 +129,13 @@
   services.upower.enable = true;
 
   # system packages
-  environment.systemPackages = with pkgs; let
-    themes = callPackage ./sddm-theme.nix {};
-  in [
+  environment.systemPackages = with pkgs; [
     vim
     kitty
     firefox
     git
     wget
     curl
-    themes.eucalyptus-drop
   ];
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;

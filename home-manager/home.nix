@@ -5,9 +5,10 @@
   ...
 }: {
   imports = [
-    ./programs/default.nix
     ./themeing.nix
-    ./hyprland/hyprland.nix
+    ./programs.nix
+    ./xdg.nix
+    ./programs/terminal/terminal.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -19,6 +20,7 @@
       EDITOR = "nvim";
       SUDO_EDITOR = "vim";
       PATH = "$PATH:$HOME/.local/bin";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
     };
 
     file = {

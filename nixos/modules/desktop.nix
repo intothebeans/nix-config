@@ -5,33 +5,37 @@
   lib,
   ...
 }: {
-  programs.dconf.enable = true;
-
-  # hyprland
-  programs.hyprland.enable = true;
-  #programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-
-  # enable plasma
-  services.displayManager.sddm = {
+  services.xserver = {
     enable = true;
-    theme = "eucalyptus-drop";
-    wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
-    extraPackages = with pkgs; [
-      kdePackages.qt5compat
-    ];
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
-  #services.desktopManager.plasma6.enable = true;
-  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
-  #   konsole
-  #   plasma-browser-integration
-  #   elisa
-  #   khelpcenter
-  #   spectacle
-  #   krdp
-  # ];
-
+  environment.gnome.excludePackages = with pkgs; [
+    atomix
+    cheese
+    epiphany
+    geary
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-connections
+    gnome-console
+    gnome-contacts
+    gnome-logs
+    gnome-maps
+    gnome-music
+    gnome-photos
+    gnome-system-monitor
+    gnome-terminal
+    gnome-tour
+    hitori
+    iagno
+    loupe
+    tali
+    totem
+  ];
+  services.udev.packages = with pkgs; [gnome-settings-daemon];
   # fonts
   fonts = {
     packages = with pkgs; [

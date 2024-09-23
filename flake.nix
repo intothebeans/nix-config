@@ -9,8 +9,6 @@
 
     stylix.url = "github:danth/stylix";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     ags.url = "github:Aylur/ags";
 
     lix-module = {
