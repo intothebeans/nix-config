@@ -28,7 +28,6 @@
     flatpak
     killall
     libnotify
-    ranger
     ripgrep
     trashy
 

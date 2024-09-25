@@ -13,7 +13,6 @@
       gnome-extension-manager
       pciutils
       iw
-      gtop
     ])
     ++ (with pkgs.gnomeExtensions; [
       appindicator
