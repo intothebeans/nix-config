@@ -5,5 +5,6 @@
     ./graphics.nix
     ./locale.nix
     ./virtualization.nix
+    ./ssh.nix
   ];
 }

@@ -12,7 +12,7 @@
     };
     shellIntegration.enableZshIntegration = true;
     shellIntegration.enableFishIntegration = true;
-    theme = "Gruvbox Dark";
+    themeFile = "GruvboxMaterialDarkHard";
     settings = {
       disable_ligatures = "cursor";
       cursor_shape = "block";

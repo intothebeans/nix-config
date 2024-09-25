@@ -41,8 +41,12 @@
       "wheel"
       "docker"
       "libvirt"
+      "sshuser"
     ];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOlBs5J+/fm3x4xOClnOMLmOqoz5Qz/SCS6fF/ggzJP2"
+    ];
   };
 
   # security
@@ -63,22 +67,6 @@
     nix-path = config.nix.nixPath;
     builders-use-substitutes = true;
   };
-  nixpkgs.overlays = [
-    # GNOME 46: triple-buffering-v4-46
-    (final: prev: {
-      gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-        mutter = gnomePrev.mutter.overrideAttrs (old: {
-          src = pkgs.fetchFromGitLab {
-            domain = "gitlab.gnome.org";
-            owner = "vanvugt";
-            repo = "mutter";
-            rev = "triple-buffering-v4-46";
-            hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-          };
-        });
-      });
-    })
-  ];
 
   # garbage collection
   nix.gc = {
@@ -93,6 +81,8 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
+      allowedTCPPorts = [22];
+      allowedUDPPorts = [22];
     };
   };
 
