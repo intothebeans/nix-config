@@ -35,6 +35,7 @@
       tree = "eza --color=always --icons=always -T";
       se = "sudoedit";
       bg = "$HOME/.config/hypr/scripts/set_background.sh";
+      trash = "trash put";
     };
     initExtra = ''
       HISTDUP=erase

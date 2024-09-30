@@ -11,6 +11,11 @@
     desktopManager.gnome.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    sushi
+    eog
+  ];
+
   environment.gnome.excludePackages = with pkgs; [
     atomix
     cheese

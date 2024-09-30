@@ -8,6 +8,7 @@
     # ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
 
     appimage-run
+    libappimage
     nextcloud-client
     p7zip
     qbittorrent-enhanced
@@ -26,8 +27,10 @@
     coreutils-full
     fastfetch
     flatpak
+    iw
     killall
     libnotify
+    pciutils
     ripgrep
     trashy
 
@@ -74,6 +77,16 @@
 
     celluloid
     ffmpeg
+    obs-studio
+
+    #  █████╗ ██╗   ██╗██████╗ ██╗ ██████╗
+    # ██╔══██╗██║   ██║██╔══██╗██║██╔═══██╗
+    # ███████║██║   ██║██║  ██║██║██║   ██║
+    # ██╔══██║██║   ██║██║  ██║██║██║   ██║
+    # ██║  ██║╚██████╔╝██████╔╝██║╚██████╔╝
+    # ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
+
+    supercollider-with-plugins
 
     #  ██████╗  ██████╗██████╗
     # ██╔═══██╗██╔════╝██╔══██╗

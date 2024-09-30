@@ -109,7 +109,8 @@
 
   # allow dynamic binaries
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
+  programs.nix-ld.libraries = with pkgs; [
+  ];
 
   # app images
   programs.appimage.binfmt = true;

@@ -11,8 +11,6 @@
         {colorVariants = ["green"];})
       gnome-tweaks
       gnome-extension-manager
-      pciutils
-      iw
     ])
     ++ (with pkgs.gnomeExtensions; [
       appindicator
