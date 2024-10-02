@@ -23,6 +23,7 @@
       SUDO_EDITOR = "vim";
       PATH = "$PATH:$HOME/.local/bin";
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
+      XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/beans/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
     };
 
     file = {

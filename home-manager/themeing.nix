@@ -7,8 +7,7 @@
   home.packages =
     (with pkgs; [
       base16-schemes
-      (tela-circle-icon-theme.override
-        {colorVariants = ["green"];})
+      (tela-circle-icon-theme.override {colorVariants = ["green"];})
       gnome-tweaks
       gnome-extension-manager
     ])
@@ -25,7 +24,7 @@
       dash2dock-lite
       desktop-cube
       media-controls
-      pop-shell
+      forge
     ]);
   stylix = {
     fonts = with pkgs; {
