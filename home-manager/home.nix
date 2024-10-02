@@ -2,6 +2,7 @@
   username,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -9,6 +10,7 @@
     ./programs.nix
     ./xdg.nix
     ./programs/terminal/terminal.nix
+    inputs.spicetify-nix.homeManagerModules.default
   ];
   nixpkgs.config.allowUnfree = true;
 

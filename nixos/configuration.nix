@@ -131,6 +131,7 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+  services.flatpak.enable = true;
 
   # system installation required for browser and polkit integration
   programs._1password.enable = true;
