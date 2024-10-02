@@ -6,5 +6,6 @@
     ./locale.nix
     ./virtualization.nix
     ./ssh.nix
+    ./system.nix
   ];
 }

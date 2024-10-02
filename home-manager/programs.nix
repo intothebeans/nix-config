@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # ███████╗██╗██╗     ███████╗███████╗
     # ██╔════╝██║██║     ██╔════╝██╔════╝
@@ -25,10 +26,14 @@
 
     bat
     coreutils-full
+    dialog
     fastfetch
+    freerdp3
+    iproute2
     iw
     killall
     libnotify
+    netcat-gnu
     pciutils
     ripgrep
     trashy

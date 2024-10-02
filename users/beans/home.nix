@@ -4,12 +4,13 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
-    ./themeing.nix
-    ./programs.nix
-    ./xdg.nix
-    ./programs/terminal/terminal.nix
+    ../../home-manager/themeing.nix
+    ../../home-manager/programs.nix
+    ../../home-manager/xdg.nix
+    ../../home-manager/programs/terminal/terminal.nix
     inputs.spicetify-nix.homeManagerModules.default
   ];
   nixpkgs.config.allowUnfree = true;
@@ -27,8 +28,8 @@
     };
 
     file = {
-      ".config/code-flags.conf".source = ./programs/config-files/code-flags.conf;
-      ".config/winapps/winapps.conf".source = ./programs/winapps/winapps.conf;
+      ".config/code-flags.conf".source = ../../home-manager/programs/config-files/code-flags.conf;
+      ".config/winapps/winapps.conf".source = ../../home-manager/programs/winapps/winapps.conf;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
