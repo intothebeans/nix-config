@@ -32,6 +32,26 @@
 
   networking = {
     hostName = "pi4";
+    interfaces = {
+      wlan0.useDHCP = false;
+      wlan0.ipv4.addresses = [
+        {
+          address = "192.168.1.200";
+          prefixLength = 24;
+        }
+      ];
+    };
+    defaultGateway = {
+      address = "192.168.1.1";
+      interface = "wlan0";
+    };
+    nameservers = [
+      "1.1.1.1"
+      "4.2.2.1"
+      "4.2.2.2"
+      "4.2.2.5"
+    ];
+
     firewall = {
       enable = true;
       allowedTCPPorts = [
