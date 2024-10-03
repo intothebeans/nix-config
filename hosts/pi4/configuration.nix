@@ -34,9 +34,28 @@
     hostName = "pi4";
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];
-      allowedUDPPorts = [ 22 ];
+      allowedTCPPorts = [
+        22
+        80
+        443
+      ];
+      allowedUDPPorts = [
+        22
+        80
+        443
+      ];
     };
+  };
+
+  # web server 
+  services.caddy = {
+    enable = true;
+    enableReload = true;
+    email = "certs.blam@beans-cloud.space";
+    globalConfig = ''
+      grace_period 10s
+    '';
+    configFile = ../../home-manager/config-files/Caddyfile;
   };
 
   # This value determines the NixOS release from which the default

@@ -30,19 +30,16 @@
       spicetify-nix,
       ...
     }@inputs:
-    let
-      username = "beans";
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      specialArgs = {
-        inherit inputs username;
-      };
-    in
     {
       nixosConfigurations = {
         nixos-beans =
           let
             username = "beans";
+            specialArgs = {
+              inherit inputs username;
+            };
+            system = "x86_64-linux";
+            pkgs = nixpkgs.legacyPackages.${system};
           in
           nixpkgs.lib.nixosSystem {
             inherit specialArgs system;
@@ -64,6 +61,11 @@
         pi4 =
           let
             username = "admin";
+            specialArgs = {
+              inherit inputs username;
+            };
+            system = "aarch64-linux";
+            pkgs = nixpkgs.legacyPackages.${system};
           in
           nixpkgs.lib.nixosSystem {
             inherit specialArgs system;

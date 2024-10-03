@@ -1,11 +1,10 @@
 {
   pkgs,
-  username,
   ...
 }:
 {
   programs.zsh.enable = true;
-  users.users.${username} = {
+  users.users."admin" = {
     isNormalUser = true;
     description = "Aiden";
     extraGroups = [

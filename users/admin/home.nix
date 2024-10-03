@@ -7,12 +7,10 @@
 }:
 {
   imports = [
-    ../../home-manager/themeing.nix
     ./programs.nix
-    ../../home-manager/xdg.nix
     ../../home-manager/programs/terminal/terminal.nix
-    inputs.spicetify-nix.homeManagerModules.default
   ];
+  kittyConfig.enable = lib.mkDefault true;
   nixpkgs.config.allowUnfree = true;
 
   home = {
@@ -20,16 +18,9 @@
     homeDirectory = "/home/${username}";
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
       SUDO_EDITOR = "vim";
       PATH = "$PATH:$HOME/.local/bin";
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
-      XDG_DATA_DIRS = "/var/lib/flatpak/exports/share:/home/beans/.local/share/flatpak/exports/share:$XDG_DATA_DIRS";
-    };
-
-    file = {
-      ".config/code-flags.conf".source = ../../home-manager/config-files/code-flags.conf;
-      ".config/winapps/winapps.conf".source = ../../home-manager/winapps/winapps.conf;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
@@ -37,10 +28,7 @@
   };
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      Host *
-        IdentityAgent ~/.1password/agent.sock
-    '';
+    forwardAgent = true;
   };
 
   programs.git = {

@@ -15,7 +15,7 @@
         IgnoreRhosts yes
         Compression no
         TCPKeepAlive no
-        AllowAgentForwarding no
+        AllowAgentForwarding yes
         HostbasedAuthentication no
         MaxAuthTries 3
       '';

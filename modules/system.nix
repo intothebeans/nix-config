@@ -42,10 +42,9 @@
 
   # allow dynamic binaries
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries =
-    with pkgs;
-    [
-    ];
+  programs.nix-ld.libraries = with pkgs; [
+    webgkt
+  ];
 
   # system packages 
   environment.systemPackages = with pkgs; [

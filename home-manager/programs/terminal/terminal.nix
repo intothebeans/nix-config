@@ -4,4 +4,6 @@
     ./vim.nix
     ./zsh.nix
   ];
+
+  kittyConfig.enable = true;
 }

@@ -23,6 +23,7 @@
   vm.enable = true;
 
   # bootloader
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.plymouth.enable = true;
   boot.extraModprobeConfig = ''blacklist nouveau options nouveau modeset=0 options nvidia_drm fbdev=1'';
   boot.loader = {
