@@ -94,7 +94,7 @@
 
   services.fail2ban = {
     enable = true;
-    maxretry = 4;
+    maxretry = 3;
     ignoreIP = [
       "127.0.0.1/8"
       "192.168.1.0/24"
