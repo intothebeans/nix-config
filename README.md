@@ -1,6 +1,6 @@
 # NixOS is Awesome
 
-My config certainly isn't as complex as some others out there (mad respect), but that doesn't make me any less proud or excited about it. I currently have only one machine, my personal laptop, with one user, me. Most things are configured using home manager following the principle of least privelage. I appreciate feedback or suggestions!
+My config certainly isn't as complex as some others out there (mad respect), but that doesn't make me any less proud or excited about it. I currently have two machines, my personal laptop and Raspberry Pi home server. As always, the configuration is a leaving project. I like tweaking things. I appreciate feedback or suggestions!
 
 # Inspo
 
