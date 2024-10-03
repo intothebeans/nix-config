@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 {
@@ -40,4 +41,25 @@
       vscode.enable = lib.mkDefault false;
     };
   };
+  programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in
+    {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        addToQueueTop
+        beautifulLyrics
+        betterGenres
+        fullAlbumDate
+        hidePodcasts
+        history
+        savePlaylists
+        showQueueDuration
+        shuffle # shuffle+ (special characters are sanitized out of extension names)
+        skipStats
+      ];
+      theme = lib.mkDefault spicePkgs.themes.onepunch;
+    };
 }
