@@ -2,11 +2,14 @@
 {
   home.packages = with pkgs; [
     bat
-    code-server
     glances
     jdk22
+    ncdu
     p7zip
+    peergos
+    ranger
     ripgrep
+    tmux
     trashy
     unzip
     zip

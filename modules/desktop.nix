@@ -44,6 +44,7 @@
       loupe
       tali
       totem
+      nautilus
     ];
     services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 

@@ -32,18 +32,13 @@
     options = lib.mkDefault "--delete-older-than 7d";
   };
 
-  # networking
-  networking = {
-    networkmanager.enable = true;
-  };
-
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # allow dynamic binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    webgkt
+    webkitgtk
   ];
 
   # system packages 

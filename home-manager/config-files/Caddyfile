@@ -28,13 +28,4 @@
 // 	reverse_proxy localhost:8080
 // }
 
-// portainer.beans-cloud.space {
-// 	import secure *
-// 	reverse_proxy localhost:9000
-// }
-
-// system.beans-cloud.space {
-// 	import secure *
-// 	reverse_proxy localhost:3000
-// }
 

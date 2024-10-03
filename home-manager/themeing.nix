@@ -3,11 +3,12 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   home.packages =
     (with pkgs; [
       base16-schemes
-      (tela-circle-icon-theme.override {colorVariants = ["green"];})
+      (tela-circle-icon-theme.override { colorVariants = [ "green" ]; })
       gnome-tweaks
       gnome-extension-manager
     ])
@@ -21,7 +22,6 @@
       clipboard-indicator
       color-picker
       coverflow-alt-tab
-      dash2dock-lite
       desktop-cube
       media-controls
       forge
@@ -30,7 +30,7 @@
     fonts = with pkgs; {
       sansSerif = {
         name = "CodeNewRoman Nerd Font";
-        package = nerdfonts.override {fonts = ["CodeNewRoman"];};
+        package = nerdfonts.override { fonts = [ "CodeNewRoman" ]; };
       };
     };
     targets = {

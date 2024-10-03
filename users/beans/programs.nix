@@ -2,14 +2,13 @@
 {
   home.packages = with pkgs; [
     # files -----------------------------------------
-    appimage-run
-    libappimage
+    nemo-with-extensions
     nextcloud-client
     p7zip
     qbittorrent-enhanced
+    spacedrive
     sshfs
     unzip
-    xplorer
     zip
 
     # utilities --------------------------------------

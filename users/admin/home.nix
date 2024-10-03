@@ -10,7 +10,7 @@
     ./programs.nix
     ../../home-manager/programs/terminal/terminal.nix
   ];
-  kittyConfig.enable = lib.mkDefault true;
+  kittyConfig.enable = lib.mkDefault false;
   nixpkgs.config.allowUnfree = true;
 
   home = {

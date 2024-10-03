@@ -29,7 +29,8 @@
 
     file = {
       ".config/code-flags.conf".source = ../../home-manager/config-files/code-flags.conf;
-      ".config/winapps/winapps.conf".source = ../../home-manager/winapps/winapps.conf;
+      ".config/winapps/winapps.conf".source = ../../home-manager/programs/winapps/winapps.conf;
+      ".config/custom.omp.toml".source = ../../home-manager/config-files/custom.omp.toml;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

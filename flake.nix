@@ -70,7 +70,7 @@
           nixpkgs.lib.nixosSystem {
             inherit specialArgs system;
             modules = [
-              lix-module.nixosModules.default
+              ./users/${username}/nixos.nix
               ./hosts/pi4/configuration.nix
               home-manager.nixosModules.home-manager
               {

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     oh-my-posh
   ];
@@ -51,7 +52,7 @@
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --color=always --icons=always -F $realpath'
 
-      eval "$(oh-my-posh init zsh -c ${./. + "/../config-files/custom.omp.toml"})"
+      eval "$(oh-my-posh init zsh -c $HOME/.config/custom.omp.toml)"
     '';
   };
 
