@@ -13,6 +13,7 @@
   imports = [
     # ./hardware-configuration.nix
     ../../modules/modules.nix
+    inputs.sops-nix.nixosModules.sops
   ];
 
   filesystem.server.enable = true;
@@ -21,6 +22,15 @@
   desktop.enable = false;
   nvidia.enable = false;
   vm.enable = false;
+
+  sops.defaultSopsFile = ../../secrets/secrets.yaml;
+  sopd.defaultSopsFormat = "yaml";
+  sops.age.keyfile = "$HOME/.config/sops/age/keys.txt";
+  spos.secrets."wireless.env" = { };
+  sops.secrets.sasl_password = {
+    owner = config.services.postfix.user;
+    key = "sasl_password";
+  };
 
   # bootloader
   boot = {
@@ -39,7 +49,16 @@
 
   networking = {
     hostName = "pi4";
-    networkmanager.enable = true;
+    wireless = {
+      environmentFile = config.sops.secrets."wireless.env".path;
+      interfaces = [ "wlan0" ];
+      enable = true;
+      networks = {
+        "@home_uuid@" = {
+          psk = "@home_psk@";
+        };
+      };
+    };
     interfaces = {
       wlan0.ipv4.addresses = [
         {
@@ -73,15 +92,37 @@
     };
   };
 
+  services.fail2ban = {
+    enable = true;
+    maxretry = 4;
+    ignoreIP = [
+      "127.0.0.1/8"
+      "192.168.1.0/24"
+    ];
+    bantime = "30s";
+    bantime-increment.enable = true;
+    bantime-increment.factor = 1.5;
+    bantime-increment.maxtime = "1d";
+  };
+
   # web server 
   services.caddy = {
     enable = true;
     enableReload = true;
-    email = "certs.blam@beans-cloud.space";
     globalConfig = ''
       grace_period 10s
     '';
-    configFile = ../../home-manager/config-files/Caddyfile;
+    configFile = ../../containers/Caddyfile;
+  };
+
+  # mta 
+  systemd.services.postfix.after = [ "sops-nix.service" ];
+  services.postfix = {
+    enable = true;
+    submissionOptions.smtp_sasl_auth_enable = "yes";
+    submissionOptions.smtp_sasl.password_maps = "hash:${config.sops.secrets.sasl_password.path}";
+    relayHost = "smtp.gmail.com";
+    relayPort = 587;
   };
 
   # This value determines the NixOS release from which the default

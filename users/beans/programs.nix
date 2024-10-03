@@ -46,6 +46,9 @@
     obs-studio
     davinci-resolve
 
+    # audio
+    spicetify-cli
+
     # development -------------------------------------
     # editors
     neovim

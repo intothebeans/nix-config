@@ -11,7 +11,6 @@
     ./programs.nix
     ../../home-manager/xdg.nix
     ../../home-manager/programs/terminal/terminal.nix
-    inputs.spicetify-nix.homeManagerModules.default
   ];
   nixpkgs.config.allowUnfree = true;
 
