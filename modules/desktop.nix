@@ -6,6 +6,7 @@
   ...
 }:
 {
+  imports = [ inputs.stylix.nixosModules.stylix ];
   options = {
     desktop.enable = lib.mkEnableOption "Enable desktop environment.";
   };
