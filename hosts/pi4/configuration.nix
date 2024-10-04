@@ -50,12 +50,12 @@
   networking = {
     hostName = "pi4";
     wireless = {
-      environmentFile = config.sops.secrets."wireless.env".path;
+      secretsFile = config.sops.secrets."wireless.env".path;
       interfaces = [ "wlan0" ];
       enable = true;
       networks = {
-        "@home_uuid@" = {
-          psk = "@home_psk@";
+        "ext:home_uuid" = {
+          pskRaw = "ext:home_psk";
         };
       };
     };
