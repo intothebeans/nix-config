@@ -25,8 +25,7 @@
 
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "$HOME/.config/sops/age/keys.txt";
-  sops.secrets."wireless.env" = { };
+  sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
   sops.secrets.sasl_password = {
     owner = config.services.postfix.user;
     key = "sasl_password";
@@ -50,12 +49,12 @@
   networking = {
     hostName = "pi4";
     wireless = {
-      secretsFile = config.sops.secrets."wireless.env".path;
       interfaces = [ "wlan0" ];
+      secretsFile = "../../secret";
       enable = true;
       networks = {
-        "ext:home_uuid" = {
-          pskRaw = "ext:home_psk";
+        huntwickville = {
+          psk = "ext:password";
         };
       };
     };
