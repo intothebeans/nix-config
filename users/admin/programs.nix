@@ -4,6 +4,7 @@
     bat
     emacs
     glances
+    just
     ncdu
     p7zip
     peergos

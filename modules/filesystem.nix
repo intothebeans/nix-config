@@ -9,7 +9,7 @@
     (lib.mkIf config.filesystem.laptop.enable {
       # enable swap partition
       swapDevices = [ { device = "/dev/nvme0n1p6"; } ];
-
+      services.gvfs.enable = true;
       # auto mounts
       fileSystems = {
         "/mnt/d" = {

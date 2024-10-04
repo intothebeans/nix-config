@@ -6,7 +6,6 @@
     nextcloud-client
     p7zip
     qbittorrent-enhanced
-    spacedrive
     sshfs
     unzip
     zip
@@ -51,7 +50,7 @@
 
     # development -------------------------------------
     # editors
-    neovim
+    emacs
     vscode
 
     # nix
