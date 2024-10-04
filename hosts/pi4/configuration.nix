@@ -25,7 +25,7 @@
 
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyfile = "$HOME/.config/sops/age/keys.txt";
+  sops.age.keyFile = "$HOME/.config/sops/age/keys.txt";
   sops.secrets."wireless.env" = { };
   sops.secrets.sasl_password = {
     owner = config.services.postfix.user;
