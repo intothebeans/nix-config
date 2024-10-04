@@ -54,7 +54,7 @@
       enable = true;
       networks = {
         huntwickville = {
-          psk = "ext:password";
+          pskRaw = "ext:password";
         };
       };
     };
