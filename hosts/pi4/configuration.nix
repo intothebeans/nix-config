@@ -10,8 +10,7 @@
   ...
 }:
 {
-  imports = [
-    #./hardware-configuration.nix
+  imports =[ ./hardware-configuration.nix
     ../../modules/modules.nix
     inputs.sops-nix.nixosModules.sops
   ];
@@ -50,7 +49,7 @@
     hostName = "pi4";
     wireless = {
       interfaces = [ "wlan0" ];
-      secretsFile = ../../secret;
+      secretsFile = ../../password;
       enable = true;
       networks = {
         huntwickville = {
@@ -105,14 +104,14 @@
   };
 
   # web server 
-  # services.caddy = {
-  #   enable = true;
-  #   enableReload = true;
-  #   globalConfig = ''
-  #     grace_period 10s
-  #   '';
-  #   configFile = ../../containers/Caddyfile;
-  # };
+   services.caddy = {
+     enable = true;
+     enableReload = true;
+     globalConfig = ''
+       grace_period 10s
+     '';
+     configFile = ../../containers/Caddyfile;
+   };
 
   # mta 
   systemd.services.postfix.after = [ "sops-nix.service" ];

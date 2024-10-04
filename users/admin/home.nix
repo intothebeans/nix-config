@@ -22,7 +22,8 @@
       SUDO_EDITOR = "vim";
       PATH = "$PATH:$HOME/.local/bin";
     };
-
+    
+    file.".config/custom.omp.toml".source = ../../home-manager/config-files/custom.omp.toml;
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
   };
