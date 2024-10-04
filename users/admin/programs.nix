@@ -2,8 +2,8 @@
 {
   home.packages = with pkgs; [
     bat
+    emacs
     glances
-    jdk22
     ncdu
     p7zip
     peergos

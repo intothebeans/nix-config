@@ -67,8 +67,9 @@
           nixpkgs.lib.nixosSystem {
             inherit specialArgs system;
             modules = [
-              ./users/${username}/nixos.nix
               ./hosts/pi4/configuration.nix
+              ./users/${username}/nixos.nix
+              stylix.nixosModules.stylix
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;

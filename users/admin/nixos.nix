@@ -5,11 +5,11 @@
 }:
 {
   programs.zsh.enable = true;
+  users.groups.sshuser = { };
   users.users.${username} = {
     isNormalUser = true;
     description = "Aiden";
     extraGroups = [
-      "networkmanager"
       "wheel"
       "docker"
       "sshuser"

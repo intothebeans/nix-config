@@ -21,11 +21,8 @@
       '';
       settings = {
         PasswordAuthentication = false;
-        UseDns = true;
-        UsePAM = true;
         KbdInteractiveAuthentication = false;
-        PrintMotd = false;
-        X11Forwarding = false;
+        UseDns = true;
         PermitRootLogin = "no";
         AllowGroups = [ "sshuser" ];
         LogLevel = "VERBOSE";
