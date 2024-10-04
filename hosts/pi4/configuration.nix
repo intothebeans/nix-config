@@ -50,7 +50,7 @@
     hostName = "pi4";
     wireless = {
       interfaces = [ "wlan0" ];
-      secretsFile = "../../secret";
+      secretsFile = ../../secret;
       enable = true;
       networks = {
         huntwickville = {
