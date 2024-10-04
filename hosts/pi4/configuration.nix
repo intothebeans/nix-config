@@ -11,7 +11,7 @@
 }:
 {
   imports = [
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
     ../../modules/modules.nix
     inputs.sops-nix.nixosModules.sops
   ];
@@ -44,7 +44,7 @@
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
-    initrd.systemd.enableTpm2 = false;
+    initrd.systemd.tpm2.enable = false;
   };
 
   networking = {
@@ -101,19 +101,19 @@
     ];
     bantime = "30s";
     bantime-increment.enable = true;
-    bantime-increment.factor = 1.5;
+    bantime-increment.factor = "1.5";
     bantime-increment.maxtime = "1d";
   };
 
   # web server 
-  services.caddy = {
-    enable = true;
-    enableReload = true;
-    globalConfig = ''
-      grace_period 10s
-    '';
-    configFile = ../../containers/Caddyfile;
-  };
+  # services.caddy = {
+  #   enable = true;
+  #   enableReload = true;
+  #   globalConfig = ''
+  #     grace_period 10s
+  #   '';
+  #   configFile = ../../containers/Caddyfile;
+  # };
 
   # mta 
   systemd.services.postfix.after = [ "sops-nix.service" ];
