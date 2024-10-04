@@ -24,9 +24,9 @@
   vm.enable = false;
 
   sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  sopd.defaultSopsFormat = "yaml";
+  sops.defaultSopsFormat = "yaml";
   sops.age.keyfile = "$HOME/.config/sops/age/keys.txt";
-  spos.secrets."wireless.env" = { };
+  sops.secrets."wireless.env" = { };
   sops.secrets.sasl_password = {
     owner = config.services.postfix.user;
     key = "sasl_password";
