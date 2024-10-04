@@ -49,7 +49,7 @@
     hostName = "pi4";
     wireless = {
       interfaces = [ "wlan0" ];
-      secretsFile = ../../password;
+      secretsFile = /home/${username}/.password;
       enable = true;
       networks = {
         huntwickville = {
@@ -102,16 +102,6 @@
     bantime-increment.factor = "1.5";
     bantime-increment.maxtime = "1d";
   };
-
-  # web server 
-   services.caddy = {
-     enable = true;
-     enableReload = true;
-     globalConfig = ''
-       grace_period 10s
-     '';
-     configFile = ../../containers/Caddyfile;
-   };
 
   # mta 
   systemd.services.postfix.after = [ "sops-nix.service" ];

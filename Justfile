@@ -19,8 +19,10 @@ gc:
 
 commit:
     #!/usr/bin/env bash
+    user=$(whoami)
+    host=$(hostname)
     commit_msg=$(nixos-rebuild list-generations | grep current)
-    git add . && git commit -am "$commit_msg"
+    git add . && git commit -am "$user@$host | $commit_msg"
 
 # winapps
 

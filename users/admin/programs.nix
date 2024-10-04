@@ -6,6 +6,8 @@
     glances
     just
     ncdu
+    nil 
+    nixfmt-rfc-style
     p7zip
     peergos
     ranger
