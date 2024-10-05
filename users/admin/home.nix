@@ -32,7 +32,7 @@
     glances = {
       Unit = {
         Description = "Glances";
-        After = "network.target";
+        After = [ "network.target" ];
       };
 
       Service = {
@@ -43,7 +43,7 @@
       };
 
       Install = {
-        WantedBy = "multi-user.target";
+        WantedBy = [ "multi-user.target" ];
 
       };
     };
