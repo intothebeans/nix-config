@@ -36,7 +36,7 @@
       };
 
       Service = {
-        ExecStart = "${lib.getExe' pkgs.glances} -w --disable-process";
+        ExecStart = "${lib.getExe' pkgs.glances " -w --disable-process"}";
         Restart = "always";
         RemainAfterExit = "no";
 
