@@ -32,7 +32,20 @@
       };
     })
     (lib.mkIf config.filesystem.server.enable {
-      # TODO: implement me
+      swapDevices = [{label = "swap";}];
+      fileSystems = {
+        "/mnt/ssd" = {
+          device = "/dev/sda1";
+          fsType = "ntfs";
+          mountPoint = "/mnt/ssd";
+          options = [
+            "nosuid"
+            "noatime"
+            "nodev"
+            "defaults"
+          ];
+        };
+      };
     })
   ];
 }
