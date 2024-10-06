@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  lib,
   ...
 }:
 {

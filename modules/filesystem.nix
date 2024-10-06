@@ -33,6 +33,7 @@
     })
     (lib.mkIf config.filesystem.server.enable {
       swapDevices = [{label = "swap";}];
+      boot.kernel.sysctl = {"vm.swappiness" = 15;};
       fileSystems = {
         "/mnt/ssd" = {
           device = "/dev/sda1";
