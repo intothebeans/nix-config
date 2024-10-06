@@ -16,4 +16,5 @@
     unzip
     zip
   ];
+  programs.btop.enable = true;
 }
