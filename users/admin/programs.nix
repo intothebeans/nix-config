@@ -4,13 +4,11 @@
     bat
     emacs
     emacsPackages.doom
-    glances
     just
     ncdu
-    nil 
+    nil
     nixfmt-rfc-style
     p7zip
-    peergos
     ranger
     ripgrep
     tmux
