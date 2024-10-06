@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # files -----------------------------------------
+    appimage-run
     nemo-with-extensions
     nextcloud-client
     p7zip
@@ -51,6 +52,7 @@
     # development -------------------------------------
     # editors
     emacs
+    emacsPackages.doom
     vscode
 
     # nix
