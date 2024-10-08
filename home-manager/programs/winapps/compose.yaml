@@ -9,7 +9,7 @@ services:
     container_name: WinApps # Name of the Windows VM.
     environment:
       VERSION: "tiny11"
-      RAM_SIZE: "8G" # RAM allocated to the Windows VM.
+      RAM_SIZE: "4G" # RAM allocated to the Windows VM.
       CPU_CORES: "2" # CPU cores allocated to the Windows VM.
       DISK_SIZE: "64G" # Size of the primary hard disk.
       HOME: "${HOME}" # Set path to Linux user home folder.

@@ -4,7 +4,7 @@
     # files -----------------------------------------
     appimage-run
     nemo-with-extensions
-    seafile-client
+    nextcloud-client
     p7zip
     qbittorrent-enhanced
     sshfs
