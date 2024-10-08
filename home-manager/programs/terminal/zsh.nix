@@ -26,18 +26,16 @@
         "ohmyzsh/ohmyzsh path:plugins/colored-man-pages"
         "ohmyzsh/ohmyzsh path:plugins/rsync"
         "ohmyzsh/ohmyzsh path:plugins/docker"
+	"ohmyzsh/ohmyzsh path:plugins/docker-compose"
       ];
     };
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      v = "vim";
-      nv = "nvim";
       config = "cd $HOME/nix-config";
       ls = "eza --color=always --icons=always --hyperlink -F";
       tree = "eza --color=always --icons=always -T";
       se = "sudoedit";
-      bg = "$HOME/.config/hypr/scripts/set_background.sh";
       tp = "trash put";
     };
     initExtra = ''
