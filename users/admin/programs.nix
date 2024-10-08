@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     bat
     emacs
-    emacsPackages.doom
     just
     ncdu
     nil

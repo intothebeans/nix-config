@@ -52,7 +52,6 @@
     # development -------------------------------------
     # editors
     emacs
-    emacsPackages.doom
     vscode
 
     # nix
