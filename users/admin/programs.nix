@@ -4,7 +4,6 @@
     bat
     emacs
     emacsPackages.doom
-    etebase-server
     just
     ncdu
     nil
