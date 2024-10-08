@@ -24,6 +24,8 @@
         "getantidote/use-omz"
         "ohmyzsh/ohmyzsh path:plugins/command-not-found"
         "ohmyzsh/ohmyzsh path:plugins/colored-man-pages"
+        "ohmyzsh/ohmyzsh path:plugins/rsync"
+        "ohmyzsh/ohmyzsh path:plugins/docker"
       ];
     };
     syntaxHighlighting.enable = true;

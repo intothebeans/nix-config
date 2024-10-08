@@ -12,10 +12,10 @@
     zip
 
     # utilities --------------------------------------
+    auto-cpufreq
     bat
     coreutils-full
     dialog
-    fastfetch
     freerdp3
     iproute2
     libnotify
