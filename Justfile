@@ -12,7 +12,7 @@ history:
     nix profile history --profile /nix/var/nix/profiles/system
 
 clean:
-    sudo nix profile wipe-history --profile /nix/var/nix/profiles/system 
+  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
 
 gc:
     sudo nix-collect-garbage --delete-old
