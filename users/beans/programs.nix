@@ -16,6 +16,7 @@
     bat
     coreutils-full
     dialog
+    fd
     freerdp3
     iproute2
     libnotify
