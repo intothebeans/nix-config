@@ -32,7 +32,6 @@
     # office -----------------------------------------
     obsidian
     onlyoffice-bin
-    ticktick
     zotero
 
     # imaages ------------------------------------------

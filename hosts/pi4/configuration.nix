@@ -10,9 +10,11 @@
   ...
 }:
 {
-  imports =[ ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
     ../../modules/modules.nix
     inputs.sops-nix.nixosModules.sops
+    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
   ];
 
   filesystem.server.enable = true;
@@ -30,9 +32,27 @@
     key = "sasl_password";
   };
 
+  # pi specific 
+  raspberry-pi-nix.board = "bcm2711";
+  hardware.raspberry-pi.config = {
+  pi4 = {
+    options = {
+      arm_boost = {
+        enable = true;
+        value = true;
+      };
+    };
+    dt-overlays = {
+      vc4-kms-v3d = {
+        enable = true;
+        params = { cma-512 = { enable = true; }; };
+      };
+    };
+  };
+};
+
   # bootloader
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = [
       "xhci_pci"
       "usbhid"
@@ -40,7 +60,6 @@
     ];
     loader = {
       grub.enable = false;
-      generic-extlinux-compatible.enable = true;
     };
     initrd.systemd.tpm2.enable = false;
   };

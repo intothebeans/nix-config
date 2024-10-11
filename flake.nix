@@ -1,5 +1,11 @@
 {
   description = "NixOS configuration";
+  nixConfig = {
+    extra-substituers = [ "https://nix-community.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -15,6 +21,7 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
+    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
   };
 
   outputs =
@@ -25,6 +32,7 @@
       stylix,
       home-manager,
       sops-nix,
+      raspberry-pi-nix,
       ...
     }@inputs:
     {
@@ -44,7 +52,6 @@
               ./hosts/laptop/configuration.nix
               ./users/${username}/nixos.nix
               lix-module.nixosModules.default
-              stylix.nixosModules.stylix
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
@@ -69,7 +76,6 @@
             modules = [
               ./hosts/pi4/configuration.nix
               ./users/${username}/nixos.nix
-              stylix.nixosModules.stylix
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;

@@ -13,6 +13,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/modules.nix
+    inputs.stylix.nixosModules.stylix
   ];
 
   desktop.enable = true;
