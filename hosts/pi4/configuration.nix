@@ -35,21 +35,25 @@
   # pi specific 
   raspberry-pi-nix.board = "bcm2711";
   hardware.raspberry-pi.config = {
-  pi4 = {
-    options = {
-      arm_boost = {
-        enable = true;
-        value = true;
+    pi4 = {
+      options = {
+        arm_boost = {
+          enable = true;
+          value = true;
+        };
       };
-    };
-    dt-overlays = {
-      vc4-kms-v3d = {
-        enable = true;
-        params = { cma-512 = { enable = true; }; };
+      dt-overlays = {
+        vc4-kms-v3d = {
+          enable = true;
+          params = {
+            cma-512 = {
+              enable = true;
+            };
+          };
+        };
       };
     };
   };
-};
 
   # bootloader
   boot = {
@@ -60,6 +64,7 @@
     ];
     loader = {
       grub.enable = false;
+
     };
     initrd.systemd.tpm2.enable = false;
   };

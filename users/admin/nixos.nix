@@ -5,6 +5,7 @@
   ...
 }:
 {
+  nix.settings.trusted-users = [ "admin" ];
   programs.zsh.enable = true;
   users.groups.sshuser = { };
   users.users.${username} = {
