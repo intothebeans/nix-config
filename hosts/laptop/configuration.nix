@@ -13,7 +13,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/modules.nix
-    inputs.stylix.nixosModules.stylix
   ];
 
   desktop.enable = true;
@@ -46,8 +45,14 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];
-      allowedUDPPorts = [ 22 ];
+      allowedTCPPorts = [
+        22
+        12470
+      ];
+      allowedUDPPorts = [
+        22
+        12470
+      ];
     };
   };
 

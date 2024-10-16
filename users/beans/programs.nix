@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     # files -----------------------------------------
     appimage-run
+    gparted
     nemo-with-extensions
     nextcloud-client
     p7zip
@@ -23,6 +24,7 @@
     netcat-gnu
     nix-index
     ripgrep
+    safeeyes
     trashy
 
     # security ---------------------------------------
@@ -44,7 +46,6 @@
     celluloid
     ffmpeg
     obs-studio
-    davinci-resolve
 
     # audio
     spicetify-cli

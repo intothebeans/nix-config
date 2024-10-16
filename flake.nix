@@ -15,11 +15,6 @@
 
     stylix.url = "github:danth/stylix/ed91a20c84a80a525780dcb5ea3387dddf6cd2de";
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sops-nix.url = "github:Mic92/sops-nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
@@ -28,7 +23,6 @@
     {
       self,
       nixpkgs,
-      lix-module,
       stylix,
       home-manager,
       sops-nix,
@@ -51,7 +45,6 @@
             modules = [
               ./hosts/laptop/configuration.nix
               ./users/${username}/nixos.nix
-              lix-module.nixosModules.default
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
