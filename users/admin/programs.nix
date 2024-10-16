@@ -8,7 +8,6 @@
     nil
     nixfmt-rfc-style
     p7zip
-    ranger
     ripgrep
     tmux
     trashy

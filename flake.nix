@@ -21,7 +21,7 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
-    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
@@ -32,7 +32,7 @@
       stylix,
       home-manager,
       sops-nix,
-      raspberry-pi-nix,
+      nixos-hardware,
       ...
     }@inputs:
     {

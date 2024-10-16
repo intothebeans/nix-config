@@ -10,7 +10,6 @@
   security.sudo.extraConfig = ''
     Defaults:${username} !authenticate
   '';
-  nix.settings.trusted-users = [ username ];
   security.polkit.enable = true;
   services.gnome = {
     gnome-keyring.enable = true;
@@ -23,6 +22,7 @@
     # Workaround for https://github.com/NixOS/nix/issues/9574
     nix-path = config.nix.nixPath;
     builders-use-substitutes = true;
+    trusted-users = [ "${username}" ];
   };
 
   # garbage collection

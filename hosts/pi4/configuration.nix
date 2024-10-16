@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
     ../../modules/modules.nix
     inputs.sops-nix.nixosModules.sops
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
+    inputs.nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
   filesystem.server.enable = true;
@@ -32,42 +32,21 @@
     key = "sasl_password";
   };
 
-  # pi specific 
-  raspberry-pi-nix.board = "bcm2711";
-  hardware.raspberry-pi.config = {
-    pi4 = {
-      options = {
-        arm_boost = {
-          enable = true;
-          value = true;
-        };
-      };
-      dt-overlays = {
-        vc4-kms-v3d = {
-          enable = true;
-          params = {
-            cma-512 = {
-              enable = true;
-            };
-          };
-        };
-      };
-    };
-  };
-
   # bootloader
   boot = {
-    initrd.availableKernelModules = [
-      "xhci_pci"
-      "usbhid"
-      "usb_storage"
-    ];
-    loader = {
-      grub.enable = false;
-
-    };
     initrd.systemd.tpm2.enable = false;
   };
+
+  hardware = {
+    raspberry-pi."4" = {
+      fkms-3d.enable = true;
+      apply-overlays-dtmerge.enable = true;
+    };
+  };
+  environment.systemPackages = with pkgs; [
+    libraspberrypi
+    raspberrypi-eeprom
+  ];
 
   networking = {
     hostName = "pi4";
