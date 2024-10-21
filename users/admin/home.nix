@@ -24,6 +24,7 @@
     };
 
     file.".config/custom.omp.toml".source = ../../home-manager/config-files/custom.omp.toml;
+    file.".config/glances/glances.conf".source = ../../home-manager/config-files/glances.conf;
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
   };
@@ -36,7 +37,7 @@
       };
 
       Service = {
-        ExecStart = "${lib.getExe' pkgs.glances " -w --disable-process"}";
+        ExecStart = "glances -w --disable-process --config /home/${username}/.config/glances/glances.conf";
         Restart = "always";
         RemainAfterExit = "no";
 
@@ -45,6 +46,20 @@
       Install = {
         WantedBy = [ "multi-user.target" ];
 
+      };
+    };
+    polaris = {
+      Unit = {
+        Description = "polaris music server";
+        After = [ "network.target" ];
+      };
+      Service = {
+        ExecStart = "polaris";
+        Restart = "always";
+        RemainAfterExit = "no";
+      };
+      Install = {
+        WantedBy = [ "multi-user.target" ];
       };
     };
   };
