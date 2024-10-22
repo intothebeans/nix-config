@@ -26,6 +26,7 @@
 
   age.secrets.wifi.file = ../../secrets/wifi.age;
   age.secrets.postfix.file = ../../secrets/postfix.age;
+  age.secrets.email.file = ../../secrets/email.age;
 
   # bootloader
   boot = {
@@ -81,35 +82,69 @@
         22
         80
         443
+       
       ];
       allowedUDPPorts = [
         22
         80
         443
+      
       ];
     };
   };
 
   services.fail2ban = {
     enable = true;
-    maxretry = 3;
+    extraPackages = [ pkgs.mailutils ];
     ignoreIP = [
       "127.0.0.1/8"
       "192.168.1.0/24"
     ];
-    bantime = "30s";
-    bantime-increment.enable = true;
-    bantime-increment.factor = "1.5";
-    bantime-increment.maxtime = "1d";
+    jails = {
+      authelia.settings = {
+        enabled = true;
+        port = "http,https,9091";
+        filter = "authelia";
+        logpath = "/home/${username}/containers/authelia/config/authelia.log";
+        maxretry = "3";
+        bantime = "1d";
+        findtime = "1d";
+        chain = "DOCKER-USER";
+        action = "iptables-allports[name=authelia]";
+      };
+      DEFAULT.settings = {
+        mta = "mail";
+        action = "%(action_mwl)s";
+      };
+    };
+  };
+
+  environment.etc = {
+    "fail2ban/filter.d/authelia.local".text = pkgs.lib.mkDefault (
+      pkgs.lib.mkAfter ''
+        [Definition]
+        failregex = ^.*Unsuccessful (1FA|TOTP|Duo|U2F) authentication attempt by user .*remote_ip"?(:|=)"?<HOST>"?.*$
+                    ^.*user not found.*path=/api/reset-password/identity/start remote_ip"?(:|=)"?<HOST>"?.*$
+                    ^.*Sending an email to user.*path=/api/.*/start remote_ip"?(:|=)"?<HOST>"?.*$
+
+        ignoreregex = ^.*level"?(:|=)"?info.*
+                      ^.*level"?(:|=)"?warning.*''
+    );
   };
 
   # mta 
   services.postfix = {
     enable = true;
-    submissionOptions.smtp_sasl_auth_enable = "yes";
-    submissionOptions.smtp_sasl.password_maps = "hash:${config.age.secrets.postfix.path}";
+    config = {
+      smtp_use_tls = "yes";
+      smtp_sasl_auth_enable = "yes";
+      smtp_sasl_security_options = "noanonymous";
+      smtp_tls_security_level = "encrypt";
+      smtp_sasl_password_maps = "texthash:${config.age.secrets.postfix.path}";
+      virtual_alias_maps = "texthash:${config.age.secrets.email.path}";
+    };
     relayHost = "smtp.gmail.com";
-    relayPort = 465;
+    relayPort = 587;
   };
 
   # This value determines the NixOS release from which the default

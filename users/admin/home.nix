@@ -48,20 +48,6 @@
 
       };
     };
-    polaris = {
-      Unit = {
-        Description = "polaris music server";
-        After = [ "network.target" ];
-      };
-      Service = {
-        ExecStart = "polaris";
-        Restart = "always";
-        RemainAfterExit = "no";
-      };
-      Install = {
-        WantedBy = [ "multi-user.target" ];
-      };
-    };
   };
 
   programs.ssh = {

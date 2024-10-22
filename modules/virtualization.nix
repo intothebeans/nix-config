@@ -15,7 +15,10 @@
       programs.virt-manager.enable = true;
     })
     (lib.mkIf config.docker.enable {
-      virtualisation.docker.enable = true;
+      virtualisation.docker = {
+        enable = true;
+        logDriver = "local";
+      };
       environment.systemPackages = with pkgs; [
         dive
         docker-compose

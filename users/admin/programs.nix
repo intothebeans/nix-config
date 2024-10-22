@@ -11,7 +11,6 @@
     nil
     nixfmt-rfc-style
     p7zip
-    polaris
     ripgrep
     tmux
     trash-cli
