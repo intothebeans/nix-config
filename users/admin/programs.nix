@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     aria2
     bat
-    conceal
     emacs
     fuse
     glances
@@ -15,6 +14,7 @@
     polaris
     ripgrep
     tmux
+    trash-cli
     unzip
     zip
   ];

@@ -15,7 +15,8 @@
 
     stylix.url = "github:danth/stylix/ed91a20c84a80a525780dcb5ea3387dddf6cd2de";
 
-    sops-nix.url = "github:Mic92/sops-nix";
+    agenix.url = "github:ryantm/agenix";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -25,7 +26,7 @@
       nixpkgs,
       stylix,
       home-manager,
-      sops-nix,
+      agenix,
       nixos-hardware,
       ...
     }@inputs:

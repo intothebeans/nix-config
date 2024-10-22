@@ -13,7 +13,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/modules.nix
-    inputs.sops-nix.nixosModules.sops
+    inputs.agenix.nixosModules.default
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
@@ -24,13 +24,8 @@
   nvidia.enable = false;
   vm.enable = false;
 
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
-  sops.secrets.sasl_password = {
-    owner = config.services.postfix.user;
-    key = "sasl_password";
-  };
+  age.secrets.wifi.file = ../../secrets/wifi.age;
+  age.secrets.postfix.file = ../../secrets/postfix.age;
 
   # bootloader
   boot = {
@@ -43,16 +38,18 @@
       apply-overlays-dtmerge.enable = true;
     };
   };
-  environment.systemPackages = with pkgs; [
-    libraspberrypi
-    raspberrypi-eeprom
-  ];
-
+  environment.systemPackages =
+    with pkgs;
+    [
+      libraspberrypi
+      raspberrypi-eeprom
+    ]
+    ++ [ inputs.agenix.packages.${system}.default ];
   networking = {
     hostName = "pi4";
     wireless = {
       interfaces = [ "wlan0" ];
-      secretsFile = /home/${username}/.password;
+      secretsFile = config.age.secrets.wifi.path;
       enable = true;
       networks = {
         huntwickville = {
@@ -107,13 +104,12 @@
   };
 
   # mta 
-  systemd.services.postfix.after = [ "sops-nix.service" ];
   services.postfix = {
     enable = true;
     submissionOptions.smtp_sasl_auth_enable = "yes";
-    submissionOptions.smtp_sasl.password_maps = "hash:${config.sops.secrets.sasl_password.path}";
+    submissionOptions.smtp_sasl.password_maps = "hash:${config.age.secrets.postfix.path}";
     relayHost = "smtp.gmail.com";
-    relayPort = 587;
+    relayPort = 465;
   };
 
   # This value determines the NixOS release from which the default

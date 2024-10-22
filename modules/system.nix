@@ -7,9 +7,9 @@
 }:
 {
   # security
-  security.sudo.extraConfig = ''
-    Defaults:${username} !authenticate
-  '';
+  # security.sudo.extraConfig = ''
+  #  Defaults:${username} !authenticate
+  #'';
   security.polkit.enable = true;
   services.gnome = {
     gnome-keyring.enable = true;
