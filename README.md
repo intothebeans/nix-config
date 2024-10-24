@@ -1,6 +1,6 @@
 # NixOS is Awesome
 
-My config certainly isn't as complex as some others out there (mad respect), but that doesn't make me any less proud or excited about it. I currently have two machines, my personal laptop and Raspberry Pi home server. As always, the configuration is a leaving project. I like tweaking things. I appreciate feedback or suggestions!
+My config certainly isn't as complex as some others out there (mad respect), but that doesn't make me any less proud or excited about it. I currently have two machines, my personal laptop and Raspberry Pi home server. As always, the configuration is a living project. I like tweaking things. I appreciate feedback or suggestions!
 
 # Inspo
 
