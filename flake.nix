@@ -108,7 +108,7 @@
           };
         in
         {
-          hostname = "beans-cloud.space";
+          hostname = "192.168.1.200";
           profiles.system = {
             sshOpts = [ "-A" ];
             fastConnection = true;

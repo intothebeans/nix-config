@@ -2,6 +2,9 @@ deploy:
     git add .
     sudo nixos-rebuild switch --flake ./ | tee $HOME/rebuild.log 
 
+remote: 
+     nix run github:serokell/deploy-rs ./#server | tee $HOME/remote.log
+
 debug:
     git add .
     sudo nixos-rebuild switch --flake ./ -L -v --show-trace | tee $HOME/rebuild.log
