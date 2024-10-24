@@ -37,7 +37,7 @@
       };
 
       Service = {
-        ExecStart = "glances -w --disable-process --config /home/${username}/.config/glances/glances.conf";
+        ExecStart = "${pkgs.glances}/bin/glances -w --disable-process --config /home/${username}/.config/glances/glances.conf";
         Restart = "always";
         RemainAfterExit = "no";
 
