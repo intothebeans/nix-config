@@ -19,7 +19,7 @@
     homeDirectory = "/home/${username}";
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
       SUDO_EDITOR = "vim";
       PATH = "$PATH:$HOME/.local/bin";
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";

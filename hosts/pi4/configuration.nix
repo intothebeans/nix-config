@@ -44,6 +44,7 @@
     [
       libraspberrypi
       raspberrypi-eeprom
+      whois
     ]
     ++ [ inputs.agenix.packages.${system}.default ];
   networking = {
@@ -90,6 +91,7 @@
     };
   };
 
+  # bare metal for better performances
   services.plex = {
     enable = true;
     group = "media";
