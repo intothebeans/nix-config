@@ -103,7 +103,6 @@
       "127.0.0.1/8"
       "192.168.1.0/24"
     ];
-    banaction = "%(action_mwl)s";
     maxretry = 3;
     bantime-increment = {
       enable = true;
@@ -123,6 +122,7 @@
         action = "iptables-allports[name=authelia]";
       };
       DEFAULT.settings = {
+        action = "%(action_mwl)s";
         mta = "mail";
       };
     };
