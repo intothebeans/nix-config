@@ -17,9 +17,9 @@
 
     agenix.url = "github:ryantm/agenix";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    #nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    deploy-rs.url = "github:serokell/deploy-rs";
+    #deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs =
@@ -63,60 +63,60 @@
               }
             ];
           };
-        pi4 =
-          let
-            username = "admin";
-            specialArgs = {
-              inherit inputs username;
-            };
-            system = server-system;
-            pkgs = nixpkgs.legacyPackages.${system};
-          in
-          nixpkgs.lib.nixosSystem {
-            inherit specialArgs system;
-            modules = [
-              ./hosts/pi4/configuration.nix
-              ./users/${username}/nixos.nix
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = specialArgs;
-                home-manager.backupFileExtension = "old";
-                home-manager.users.${username} = import ./users/${username}/home.nix;
-              }
+        #   pi4 =
+        #     let
+        #       username = "admin";
+        #       specialArgs = {
+        #         inherit inputs username;
+        #       };
+        #       system = server-system;
+        #       pkgs = nixpkgs.legacyPackages.${system};
+        #     in
+        #     nixpkgs.lib.nixosSystem {
+        #       inherit specialArgs system;
+        #       modules = [
+        #         ./hosts/pi4/configuration.nix
+        #         ./users/${username}/nixos.nix
+        #         home-manager.nixosModules.home-manager
+        #         {
+        #           home-manager.useGlobalPkgs = true;
+        #           home-manager.useUserPackages = true;
+        #           home-manager.extraSpecialArgs = specialArgs;
+        #           home-manager.backupFileExtension = "old";
+        #           home-manager.users.${username} = import ./users/${username}/home.nix;
+        #         }
 
-            ];
-          };
+        #       ];
+        #     };
+        # };
+        # deploy.nodes.server =
+        #   let
+        #     system = server-system;
+        #     pkgs = import nixpkgs { inherit system; };
+        #     # nixpkgs with deploy-rs overlay but force the nixpkgs package
+        #     deployPkgs = import nixpkgs {
+        #       inherit system;
+        #       overlays = [
+        #         deploy-rs.overlay # or deploy-rs.overlays.default
+        #         (self: super: {
+        #           deploy-rs = {
+        #             inherit (pkgs) deploy-rs;
+        #             lib = super.deploy-rs.lib;
+        #           };
+        #         })
+        #       ];
+        #     };
+        #   in
+        #   {
+        #     hostname = "192.168.1.200";
+        #     profiles.system = {
+        #       sshOpts = [ "-A" ];
+        #       fastConnection = true;
+        #       sshUser = "admin";
+        #       path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.pi4;
+        #       user = "root";
+        #     };
       };
-      deploy.nodes.server =
-        let
-          system = server-system;
-          pkgs = import nixpkgs { inherit system; };
-          # nixpkgs with deploy-rs overlay but force the nixpkgs package
-          deployPkgs = import nixpkgs {
-            inherit system;
-            overlays = [
-              deploy-rs.overlay # or deploy-rs.overlays.default
-              (self: super: {
-                deploy-rs = {
-                  inherit (pkgs) deploy-rs;
-                  lib = super.deploy-rs.lib;
-                };
-              })
-            ];
-          };
-        in
-        {
-          hostname = "192.168.1.200";
-          profiles.system = {
-            sshOpts = [ "-A" ];
-            fastConnection = true;
-            sshUser = "admin";
-            path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.pi4;
-            user = "root";
-          };
-        };
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }

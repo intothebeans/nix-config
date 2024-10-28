@@ -13,6 +13,7 @@ services:
       CPU_CORES: "2" # CPU cores allocated to the Windows VM.
       DISK_SIZE: "64G" # Size of the primary hard disk.
       HOME: "${HOME}" # Set path to Linux user home folder.
+      ARGUMENTS: "-device usb-host,vendorid=0x05ac,productid=0x12a8"
     privileged: true # Grant the Windows VM extended privileges.
     ports:
       - 8006:8006 # Map '8006' on Linux host to '8006' on Windows VM --> For VNC Web Interface @ http://127.0.0.1:8006.
@@ -26,3 +27,4 @@ services:
     devices:
       - /dev/kvm # Enable KVM.
       - /dev/sda2:/disk2
+      - /dev/bus/usb
