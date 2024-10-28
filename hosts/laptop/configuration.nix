@@ -82,10 +82,18 @@
   services.upower.enable = true;
 
   # system packages
-  environment.systemPackages = with pkgs; [
-    firefox
-    kitty
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      firefox
+      kitty
+      nano
+      curl
+      wget
+      vim
+      git
+    ]
+    ++ [ inputs.agenix.packages.${system}.default ];
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;

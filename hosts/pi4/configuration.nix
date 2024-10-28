@@ -79,18 +79,21 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22
         80
         443
-       
+
       ];
       allowedUDPPorts = [
-        22
         80
         443
-      
       ];
     };
+  };
+
+  services.plex = {
+    enable = true;
+    group = "media";
+    openFirewall = true;
   };
 
   services.fail2ban = {
@@ -100,6 +103,13 @@
       "127.0.0.1/8"
       "192.168.1.0/24"
     ];
+    banaction = "%(action_mwl)s";
+    maxretry = 3;
+    bantime-increment = {
+      enable = true;
+      multipliers = "1 2 4 8 16 32 64";
+      rndtime = "8m";
+    };
     jails = {
       authelia.settings = {
         enabled = true;
@@ -114,9 +124,12 @@
       };
       DEFAULT.settings = {
         mta = "mail";
-        action = "%(action_mwl)s";
       };
     };
+  };
+  systemd.services.fail2ban.serviceConfig = {
+    CapabilityBoundingSet = [ "CAP_DAC_OVERRIDE" ];
+    ReadWritePaths = [ "/var/lib/postfix/queue/maildrop" ];
   };
 
   environment.etc = {

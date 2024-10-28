@@ -25,7 +25,7 @@
     nix-index
     ripgrep
     safeeyes
-    trashy
+    trash-cli
 
     # security ---------------------------------------
     protonvpn-gui

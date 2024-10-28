@@ -6,6 +6,7 @@
   config = lib.mkIf config.sshConfig.enable {
     services.openssh = {
       enable = true;
+      openFirewall = true;
       ports = [ 22 ];
       extraConfig = ''
         PermitUserEnvironment no

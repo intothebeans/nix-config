@@ -112,7 +112,6 @@
           profiles.system = {
             sshOpts = [ "-A" ];
             fastConnection = true;
-            interactiveSudo = true;
             sshUser = "admin";
             path = deployPkgs.deploy-rs.lib.activate.nixos self.nixosConfigurations.pi4;
             user = "root";

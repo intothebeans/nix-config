@@ -7,6 +7,7 @@
 {
   programs.zsh.enable = true;
   users.groups.sshuser = { };
+  users.groups.media = { };
   users.users.${username} = {
     isNormalUser = true;
     description = "Aiden";
@@ -14,6 +15,7 @@
       "wheel"
       "docker"
       "sshuser"
+      "media"
     ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
